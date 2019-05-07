@@ -3,7 +3,10 @@
 
 using namespace std;
 
-bool returnABool(bool aThing){}
+bool returnABool(bool aThing){
+	//justin
+	return true;
+}
 int returnANum(int aNum){}
 int returnAnotherNum(int anotherNum) {}
 char returnAChar(char aChar) {}
