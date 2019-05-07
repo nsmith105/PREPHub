@@ -3,6 +3,8 @@
 
 using namespace std;
 
+bool returnABool(bool aThing){}
+int returnANum(int aNum){}
 
 int returnAnotherNum(int num2){
   return num2;
@@ -18,7 +20,10 @@ int returnANum(int aNum){
 }
 
 int returnAnotherNum(int anotherNum) {}
-char returnAChar(char aChar) {}
+char returnAChar(char aChar) {
+  // Robert Horrace
+  return aChar
+}
 char thisIsAlsoAChar(char aChar) {}
 float thisIsAFloat(float aFloat) {}
 
