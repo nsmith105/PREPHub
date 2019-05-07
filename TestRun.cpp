@@ -30,10 +30,12 @@ int main() {
     thisIsAFloat(num3);
     print(num3);
 
-    returnAChar(letter1);
+    returnAChar(letter1)
     print(letter1);
 
-    thisIsAlsoAChar(letter2);
+    thisIsAlsoAChar(letter2){
+        return letter2;
+    }
     print(letter2);
 
     return 0;
