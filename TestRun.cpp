@@ -13,7 +13,7 @@ bool returnABool(bool aThing){
 	return true;
 }
 int returnANum(int aNum){
-    // haison
+    // haison with a branch
     return aNum;
 }
 
