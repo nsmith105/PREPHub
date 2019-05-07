@@ -3,12 +3,20 @@
 
 using namespace std;
 
+
 int returnAnotherNum(int num2){
   return num2;
 }
 
-bool returnABool(bool aThing){}
-int returnANum(int aNum){}
+bool returnABool(bool aThing){
+	//justin
+	return true;
+}
+int returnANum(int aNum){
+    // haison
+    return aNum;
+}
+
 int returnAnotherNum(int anotherNum) {}
 char returnAChar(char aChar) {}
 char thisIsAlsoAChar(char aChar) {}
