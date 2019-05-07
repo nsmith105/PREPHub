@@ -3,6 +3,11 @@
 
 using namespace std;
 
+
+int returnAnotherNum(int num2){
+  return num2;
+}
+
 bool returnABool(bool aThing){
 	//justin
 	return true;
@@ -11,6 +16,7 @@ int returnANum(int aNum){
     // haison
     return aNum;
 }
+
 int returnAnotherNum(int anotherNum) {}
 char returnAChar(char aChar) {}
 char thisIsAlsoAChar(char aChar) {}
@@ -30,8 +36,8 @@ int main() {
     returnANum(num1);
     print(num1);
 
-    returnAnotherNum(num2);
-    print(num2);
+    returnAnotherNum(num2); // Danniel Sotelo wrote stuff here
+    print(num2); // and Danniel wrote here as well
 
     thisIsAFloat(num3);
     print(num3);
