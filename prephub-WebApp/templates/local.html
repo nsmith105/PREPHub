@@ -3,6 +3,29 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+.btn-group .button {
+  background-color: #669900;
+  border: 1px solid green;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+  display: block;
+}
+
+.btn-group .button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: #013220;
+  color: white;
+}
+
 .collapsible {
   background-color: #669900;
   color: black;
@@ -52,26 +75,16 @@
 
 <button class="collapsible">PREPHub Radio</button>
 <div class="content">
-  <ol type="1">
-    <li>Option 1</li>
-    <li>Option 2</li>
-    <li>Option 3</li>
-    <li>Option 4</li>
-  </ol>
-  <form action>
-  Radio option <input type="text" name="FirstName" value="Mickey"><br>
-  <input type="submit" value="Submit">
-  </form>
+<div class="btn-group">
+  <button class="button">Button</button>
+  <button class="button">Button</button>
+  <button class="button">Button</button>
+  <button class="button">Button</button>
+</div>
 </div>
 <button class="collapsible">PREPHub Lights</button>
 <div class="content">
-  <ol type="1">
-    <li>Option 1</li>
-    <li>Option 2</li>
-    <li>Option 3</li>
-    <li>Option 4</li>
-  </ol>
-  <button type="button" onclick="alert('Light!')">Submit</button>
+  
 </div>
 <button class="collapsible">About PREPHub</button>
 <div class="content">
