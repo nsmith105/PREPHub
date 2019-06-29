@@ -6,7 +6,6 @@
 
 .btn-group .button {
   background-color: #669900;
-  border: 1px solid green;
   color: black;
   padding: 15px 32px;
   text-align: center;
@@ -77,16 +76,21 @@
 
 <button class="collapsible">PREPHub Radio</button>
 <div class="content" align="center">
-<div class="btn-group">
-  <button class="button">Button</button>
-  <button class="button">Button</button>
-  <button class="button">Button</button>
-  <button class="button">Button</button>
-</div>
+  <div class="btn-group">
+    <button class="button" onclick="rClick(this)">Radio 1</button>
+    <button class="button" onclick="rClick(this)">Radio 2</button>
+    <button class="button" onclick="rClick(this)">Radio 3</button>
+    <button class="button" onclick="rClick(this)">Radio 4</button>
+  </div>
 </div>
 <button class="collapsible">PREPHub Lights</button>
-<div class="content">
-  
+<div class="content" align="center">
+  <div class="btn-group">
+    <button class="button" onclick="lClick(this)">Light 1</button>
+    <button class="button" onclick="lClick(this)">Light 2</button>
+    <button class="button" onclick="lClick(this)">Light 3</button>
+    <button class="button" onclick="lClick(this)">Light 4</button>
+  </div>
 </div>
 <button class="collapsible">About PREPHub</button>
 <div class="content">
@@ -105,16 +109,48 @@
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
-for (i = 0; i < coll.length; i++) {
+for (i = 0;i < coll.length;i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.maxHeight){
+    if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     } 
   });
+}
+
+function rClick(button) {
+  buttons = document.getElementsByClassName("btn-group")[0].getElementsByClassName("button");
+  var i;
+  for (i = 0;i < buttons.length;i++) {
+    if (buttons[i] == button) {
+      buttons[i].disabled = true;
+      buttons[i].style.background = "#013220";
+      buttons[i].style.color = "white"
+    } else if (buttons[i].disabled == true) {
+      buttons[i].disabled = false;
+      buttons[i].style.background = "#669900";
+      buttons[i].style.color = "black"
+    }
+  }
+}
+
+function lClick(button) {
+  buttons = document.getElementsByClassName("btn-group")[1].getElementsByClassName("button");
+  var i;
+  for (i = 0;i < buttons.length;i++) {
+    if (buttons[i] == button) {
+      buttons[i].disabled = true;
+      buttons[i].style.background = "#013220";
+      buttons[i].style.color = "white"
+    } else if (buttons[i].disabled == true) {
+      buttons[i].disabled = false;
+      buttons[i].style.background = "#669900";
+      buttons[i].style.color = "black"
+    }
+  }
 }
 </script>
 
