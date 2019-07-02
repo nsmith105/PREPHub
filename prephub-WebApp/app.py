@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def render_static():
-    return render_template("local.html")
+    return render_template("login.html")
 
 if __name__ == '__main__':
     Bootstrap(app)
