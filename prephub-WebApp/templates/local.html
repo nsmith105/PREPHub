@@ -10,13 +10,39 @@
 
 <a href="{{url_for("login_press")}}"><button class="login">Admin</button></a>
 
-<button class="collapsible">PREPHub Radio</button>
-<div class="content" align="center">
-  <div class="btn-group">
-    <button class="button" onclick="rClick(this)">Radio 1</button>
-    <button class="button" onclick="rClick(this)">Radio 2</button>
-    <button class="button" onclick="rClick(this)">Radio 3</button>
-    <button class="button" onclick="rClick(this)">Radio 4</button>
+  <div class="container">
+    <button class="collapsible">PREPHub Radio</button>
+    <div class="content" align="center">
+      <div class="btn-group">
+        <button class="button">Radio 1</button>
+        <button class="button">Radio 2</button>
+        <button class="button">Radio 3</button>
+        <button class="button">Radio 4</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <button class="collapsible">PREPHub Lights</button>
+    <div class="content" align="center">
+      <div class="btn-group">
+        <button class="button">Light 1</button>
+        <button class="button">Light 2</button>
+        <button class="button">Light 3</button>
+        <button class="button">Light 4</button>
+      </div>
+  </div>
+  </div>
+  <div class="container">
+    <button class="collapsible">About PREPHub</button>
+    <div class="content">
+      <p>Info about PREPHub and its purpose</p>
+    </div>
+  </div>
+  <div class="container">
+    <button class="collapsible">Disaster Protocol</button>
+    <div class="content">
+      <p>Disaster protocol information</p>
+    </div>
   </div>
 </div>
 <button class="collapsible">PREPHub Lights</button>
@@ -40,9 +66,7 @@
 <div class="content">
   <p>Info of organizations involved and Capstone software developers</p>
 </div>
-
+  
 <script type="text/javascript" src="{{ url_for('static', filename = 'js/local.js') }}"></script>
-
-
 </body>
 </html>

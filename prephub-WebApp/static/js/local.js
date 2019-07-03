@@ -34,7 +34,7 @@ function rClick(button) {
             buttons[i].style.color = "white"
         } else if (buttons[i].disabled == true) {
             buttons[i].disabled = false;
-            buttons[i].style.background = "#669900";
+            buttons[i].style.background = "";
             buttons[i].style.color = "black"
         }
     }
