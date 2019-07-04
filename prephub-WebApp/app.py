@@ -1,43 +1,36 @@
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, url_for, redirect, render_template
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 
-@app.route("/web")
-def web_press():
-  return render_template("web.html")
-
-@app.route("/login-web")
-def login_web_press():
-  return render_template("login-web.html")
+global local_flag
+local_flag = None
 
 @app.route("/web")
-def cancel_web_press():
-  return render_template("web.html")
-
-@app.route("/admin-web")
-def submit_web_press():
-  return render_template("admin-web.html")
-
-@app.route("/web")
-def logout_web_press():
+def web():
+  global local_flag
+  local_flag = False
   return render_template("web.html")
 
 @app.route("/local")
-def local_press():
+def local():
+  global local_flag
+  local_flag = True
   return render_template("local.html")
+
+@app.route("/logout")
+def logout_press():
+  if local_flag: return redirect(url_for("local"))
+  else: return redirect(url_for("web"))
 
 @app.route("/login")
 def login_press():
   return render_template("login.html")
 
-@app.route("/local")
-def logout_press():
-  return render_template("local.html")
-
-@app.route("/local")
+@app.route("/cancel")
 def cancel_press():
-  return render_template("local.html")
+  if local_flag: return redirect(url_for("local"))
+  else: return redirect(url_for("web"))
 
 @app.route("/admin")
 def submit_press():
