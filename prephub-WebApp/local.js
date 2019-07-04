@@ -28,7 +28,7 @@ $(document).ready(function () {
     $this.prop('disabled', true);
     if ($this.siblings().is(":disabled")) {
       console.log("siblings are disabled");
-      $this.siblings().css('background', '#9ACD32');
+      $this.siblings().css('background', '#669900');
       $this.siblings().css('color', 'black');
       $this.siblings().prop('disabled', false);
     }
