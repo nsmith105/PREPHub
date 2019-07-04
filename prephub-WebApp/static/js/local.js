@@ -1,57 +1,36 @@
-var coll = document.getElementsByClassName("collapsible");
-var i;
+$(document).ready(function () {
 
-for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    });
-}
+  let $container = $('.container');
+  console.log("ready");
 
-/**
- * this is the same as saying $selector = jQuery('selector');
- * $ before a variable name indicates the variable holds an object
- *  we cache jquery results for performance
-
-    document.on('ready', function() {
-    let $collapsible = $('collapsible');
-    });
-
- */
-
-function rClick(button) {
-    buttons = document.getElementsByClassName("btn-group")[0].getElementsByClassName("button");
-    var i;
-    for (i = 0; i < buttons.length; i++) {
-        if (buttons[i] == button) {
-            buttons[i].disabled = true;
-            buttons[i].style.background = "#013220";
-            buttons[i].style.color = "white"
-        } else if (buttons[i].disabled == true) {
-            buttons[i].disabled = false;
-            buttons[i].style.background = "";
-            buttons[i].style.color = "black"
-        }
+  /**
+   * This handles expanding/contracting the collapsibles
+   */
+  $container.on('click', '.collapsible', function () {
+    let $this = $(this);
+    let content = $this.next();
+    if (content.css("max-height") != "0px") {
+      $this.removeClass("active");
+      content.css("max-height", 0);
+    } else {
+      $this.addClass("active");
+      content.css("max-height", content.prop("scrollHeight"));
     }
-}
+  });
 
-function lClick(button) {
-    buttons = document.getElementsByClassName("btn-group")[1].getElementsByClassName("button");
-    var i;
-    for (i = 0; i < buttons.length; i++) {
-        if (buttons[i] == button) {
-            buttons[i].disabled = true;
-            buttons[i].style.background = "#013220";
-            buttons[i].style.color = "white"
-        } else if (buttons[i].disabled == true) {
-            buttons[i].disabled = false;
-            buttons[i].style.background = "#669900";
-            buttons[i].style.color = "black"
-        }
+  /**
+   * This handles 
+   */
+  $container.on('click', '.content .btn-group .button', function () {
+    let $this = $(this);
+    $this.css('background', '#013220');
+    $this.css('color', 'white');
+    $this.prop('disabled', true);
+    if ($this.siblings().is(":disabled")) {
+      console.log("siblings are disabled");
+      $this.siblings().css('background', '#9ACD32');
+      $this.siblings().css('color', 'black');
+      $this.siblings().prop('disabled', false);
     }
-}
+  });
+});

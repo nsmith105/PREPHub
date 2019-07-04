@@ -1,20 +1,5 @@
-.login {
-  background-color: #669900;
-  color: black;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border = none;
-  cursor: pointer;
-  width: 100%;
-}
-
-.login:hover {
-  background-color: #013220;
-  color: while;
-}
-
 .btn-group .button {
-  background-color: #669900;
+  background-color: #9ACD32;
   color: black;
   padding: 15px 32px;
   text-align: center;
@@ -32,12 +17,12 @@
 }
 
 .btn-group .button:hover {
-  background-color: #013220;
+  background-color: black;
   color: white;
 }
 
 .collapsible {
-  background-color: #669900;
+  background-color: #9ACD32;
   color: black;
   cursor: pointer;
   padding: 18px;
@@ -54,7 +39,7 @@
 }
 
 .collapsible:hover {
-  background-color: #000000;
+  background-color: black;
   color: white
 }
 
