@@ -62,3 +62,22 @@
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
 }
+
+div > img {
+  
+  height: 100px !important;
+
+}
+.twitter {
+  padding: 0 25px 0 25px;
+  margin: auto;
+  width: 30vw;
+}
+
+.container {
+  padding: 0 25px;
+}
+
+.slick-prev:before, .slick-next:before {
+  color:black !important;
+}
