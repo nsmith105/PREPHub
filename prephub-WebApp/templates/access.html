@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
+</head>
+<body>
+
+<h2>Access</h2>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="{{ url_for('web')}}"><button type="button">Web</button></a>
+  </div>
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="{{ url_for('local')}}"><button type="button">Local</button></a>
+  </div>
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/login.js') }}"></script>
+
+</body>
+</html>
+

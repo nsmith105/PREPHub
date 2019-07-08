@@ -14,14 +14,13 @@
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <a href="/admin"><button type="submit">Login</button></a>
+
+    <a href="{{ url_for('submit_press')}}"><button type="submit">Login</button></a>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+    <a href="{{ url_for('cancel_press')}}"><button type="button" class="cancelbtn">Cancel</button></a>
   </div>
-</form>
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'js/login.js') }}"></script>
 

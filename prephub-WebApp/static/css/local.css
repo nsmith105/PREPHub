@@ -17,7 +17,7 @@
 }
 
 .btn-group .button:hover {
-  background-color: #013220;
+  background-color: black;
   color: white;
 }
 
@@ -64,10 +64,11 @@
 }
 
 div > img {
-  
+
   height: 100px !important;
 
 }
+
 .twitter {
   padding: 0 25px 0 25px;
   margin: auto;
