@@ -1,27 +1,27 @@
+import numpy as np
 from flask import Flask, request, url_for, redirect, render_template
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 
-global local_flag
-local_flag = None
+def is_valid(user, password):
+  data = open("admin.txt").readlines()
+  data = np.array(list(map(lambda x: x.strip().split(","), data)))
+  print(data)
+  v_user = np.argwhere(data[0,:] == user)
+  print(v_user)
+  if np.size(v_user) == 0:
+    return False
+  return data[v_user[0],1] == password
 
-@app.route("/web")
-def web():
-  global local_flag
-  local_flag = False
-  return render_template("web.html")
 
-@app.route("/local")
+@app.route("/")
 def local():
-  global local_flag
-  local_flag = True
   return render_template("local.html")
 
 @app.route("/logout")
 def logout_press():
-  if local_flag: return redirect(url_for("local"))
-  else: return redirect(url_for("web"))
+  return redirect(url_for("local"))
 
 @app.route("/login")
 def login_press():
@@ -29,17 +29,24 @@ def login_press():
 
 @app.route("/cancel")
 def cancel_press():
-  if local_flag: return redirect(url_for("local"))
-  else: return redirect(url_for("web"))
+  return redirect(url_for("local"))
+
+@app.route("/login_submit", methods=["POST"])
+def submit_press():
+  user = request.form["uname"]
+  password = request.form["psw"]
+  if not user or not password:
+    return redirect(url_for("login_press"))
+  elif is_valid(user, password):
+    return redirect(url_for("admin"))
+  else:
+    return redirect(url_for("login_press"))
+
 
 @app.route("/admin")
-def submit_press():
+def admin():
   return render_template("admin.html")
-
-@app.route("/")
-def render_static():
-  return render_template("access.html")
 
 if __name__ == '__main__':
     Bootstrap(app)
-    app.run()
+    app.run(threaded=True)
