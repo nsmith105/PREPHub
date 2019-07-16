@@ -1,3 +1,4 @@
+
 import numpy as np
 from flask import Flask, request, url_for, redirect, render_template
 from flask_bootstrap import Bootstrap
@@ -13,7 +14,6 @@ def is_valid(user, password):
   if np.size(v_user) == 0:
     return False
   return data[v_user[0],1] == password
-
 
 @app.route("/")
 def local():
