@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/local.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/local.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick-theme.css') }}">
 </head>
+
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <a href="{{url_for('login_press')}}">Admin</a>
-  <center><h2>PREPHub</h2></center>
+  <center>
+    <h2>PREPHub</h2>
+  </center>
   <div class="container">
     <div class="twitter">
       <div class="rounded">
@@ -37,10 +41,10 @@
     <button class="collapsible">PREPHub Radio</button>
     <div class="content" align="center">
       <div class="btn-group">
-        <button class="button">Radio 1</button>
-        <button class="button">Radio 2</button>
-        <button class="button">Radio 3</button>
-        <button class="button">Radio 4</button>
+        <button class="button change-radio">Radio 1</button>
+        <button class="button change-radio">Radio 2</button>
+        <button class="button change-radio">Radio 3</button>
+        <button class="button change-radio">Radio 4</button>
       </div>
     </div>
   </div>
@@ -48,10 +52,10 @@
     <button class="collapsible">PREPHub Lights</button>
     <div class="content" align="center">
       <div class="btn-group">
-        <button class="button">Light 1</button>
-        <button class="button">Light 2</button>
-        <button class="button">Light 3</button>
-        <button class="button">Light 4</button>
+        <button class="button change-light">White</button>
+        <button class="button change-light">Red</button>
+        <button class="button change-light">Blue</button>
+        <button class="button change-light">Green</button>
       </div>
     </div>
   </div>
@@ -67,8 +71,9 @@
       <p>Disaster protocol information</p>
     </div>
   </div>
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
   <script type="text/javascript" src="{{ url_for('static', filename = 'js/local.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename = 'slick/slick.js') }}"></script>
 </body>
+
 </html>

@@ -2,8 +2,21 @@
 import numpy as np
 from flask import Flask, request, url_for, redirect, render_template
 from flask_bootstrap import Bootstrap
+from flask_socketio import SocketIO
+
 
 app = Flask(__name__)
+# Socketio wrapps our flask app
+socketio = SocketIO(app)
+
+@socketio.on('connect', namespace='/web')
+def connect():
+    print('connected')
+
+@socketio.on('send command', namespace='/web')
+def handle_command(data):
+    print(data['command'], data['value'])
+    socketio.emit('send command confirm', "Good", namespace='/web')
 
 def is_valid(user, password):
   data = open("admin.txt").readlines()
@@ -46,6 +59,7 @@ def submit_press():
 @app.route("/admin")
 def admin():
   return render_template("admin.html")
+
 
 if __name__ == '__main__':
     Bootstrap(app)
