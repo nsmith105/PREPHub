@@ -3,14 +3,14 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/local.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick/slick-theme.css') }}">
+  <link rel="stylesheet" type="text/css" href="../public/css/local.css">
+  <link rel="stylesheet" type="text/css" href="../public/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="../public/slick/slick-theme.css">
 </head>
 
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <a href="{{url_for('login_press')}}">Admin</a>
+  <a href="/login">Admin</a>
   <center>
     <h2>PREPHub</h2>
   </center>
@@ -72,8 +72,8 @@
     </div>
   </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename = 'js/local.js') }}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename = 'slick/slick.js') }}"></script>
+  <script type="text/javascript" src= "../public/js/local.js"></script>
+  <script type="text/javascript" src="../public/slick/slick.js"></script>
 </body>
 
 </html>
