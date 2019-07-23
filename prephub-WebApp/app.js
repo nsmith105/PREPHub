@@ -44,7 +44,7 @@ app.get('/logout', (req, res) => {
  * within the ioWeb ('/user') namespace
  */
 ioWeb.on('connection', (socket) => {
-    console.log('a web user has connected');7
+    console.log('a web user has connected');
 
     socket.on('send command', (data) => {
         console.log("Received command from user");
