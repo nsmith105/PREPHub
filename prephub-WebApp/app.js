@@ -3,6 +3,8 @@ var express = require('express');
 var app = express(); // Need this line to call express functions
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var bodyParser = require('body-parser'); // Need this to parse body of a request
+
 
 // Namespaces
 var ioWeb = io.of('/user');
@@ -10,10 +12,30 @@ var ioPi = io.of('/pi');
 
 /********* Express Routing *********/
 app.use(express.static(__dirname));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(bodyParser.json());
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/templates/local.html');
 });
+
+app.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/templates/login.html'); 
+});
+
+app.post('/admin', (req, res) => {
+    console.log(req.body);
+    res.sendFile(__dirname + '/templates/admin.html');
+});
+
+app.get('/logout', (req, res) => {
+    res.redirect('/');
+})
 
 /********* Socket.io *********/
 
