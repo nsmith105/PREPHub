@@ -7,16 +7,47 @@ import json
 # Initiate socket client
 socket = socketio.Client()
 
+#socket.sleep(45)
+
 # Initiate socket client for fadecandy server (little chip netween Led strip and Pi
 fade_client = opc.Client('localhost:7890')
 numLEDs = 512
+prephub = 'https://prephub-web.appspot.com/'
 
-# Socket event handlers
 
-# connect to serve
+def onStart():
+    counter = 0
+    while counter < 5:
+        try:
+            print('\nAttepting to connect')
+            socket.connect(prephub + e, namespaces=['/pi'])
+            if socket.sid != None:
+                break
+        except:
+            error = socketio.exceptions
+            print('Error -> ', error)
+            time.sleep(5)
+            counter += 1
+    print('Could not connect to server')
+
+
+
+
+
+# connect to server
 @socket.on('connect', namespace='/pi')
 def handle_connect():
     print('Connection to server established')
+# on startup leds will cycle through color presets.    
+    white()
+    time.sleep(1)
+    green()
+    time.sleep(1)
+    blue()
+    time.sleep(1)
+    red()
+    time.sleep(1)
+    black()
 
 # on `send command` from server parse 
 # `data` sent from server
@@ -45,8 +76,7 @@ def handle_change_lights(data):
 def handle_disconnect():
     print('disconnected from server')
 
-# Establish connection to server
-socket.connect('https://prephub-web.appspot.com/', namespaces=['/pi'])
+
 
 #the following functions are the color presets 
 def white():
@@ -66,7 +96,7 @@ def white():
 
 def green ():
     black = [ (0,0,0) ] * numLEDs
-    green = [ (21, 100, 52) ] * numLEDs
+    green = [ (0, 255, 0) ] * numLEDs
 
     fade_client.put_pixels(black)
     fade_client.put_pixels(black)
@@ -109,4 +139,9 @@ def party ():
     time.sleep(0.5)
     fade_client.put_pixels(red)
 
+onStart()
 
+# Socket event handlers
+
+# Establish connection to server, loop until connection is established
+#socket.connect('https://prephub-web.appspot.com/', namespaces=['/pi'])
