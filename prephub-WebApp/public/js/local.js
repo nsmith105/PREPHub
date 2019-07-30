@@ -20,21 +20,6 @@ $(document).ready(function () {
   });
 
   /**
-   * This handles enabling/disabling the buttons after they are clicked
-   */
-  $container.on("click", ".content .btn-group .button", function () {
-    let $this = $(this);
-    $this.css("background", "#013220");
-    $this.css("color", "white");
-    $this.prop("disabled", true);
-    if ($this.siblings().is(":disabled")) {
-      $this.siblings().css("background", "#9ACD32");
-      $this.siblings().css("color", "black");
-      $this.siblings().prop("disabled", false);
-    }
-  });
-
-  /**
    * Carousel stuff, subject to change to a different
    * tech
    */
@@ -62,6 +47,7 @@ $(document).ready(function () {
       }
     ]
   });
+
 
   /**** SOCKET.io related ****/
 
@@ -91,4 +77,18 @@ $(document).ready(function () {
   socket.on('connect', () => {
     console.log('This client successfully connected to the server');
   });
+  
+  function openLang(evt, lang) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(lang).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 });

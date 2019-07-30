@@ -68,9 +68,29 @@
   <div class="container">
     <button class="collapsible">Disaster Protocol</button>
     <div class="content">
-      <p>Disaster protocol information</p>
+      <div class="tab">
+        <button class="tablinks" onclick="openLang(event, 'English')">English</button>
+        <button class="tablinks" onclick="openLang(event, 'Español')">Español</button>
+        <button class="tablinks" onclick="openLang(event, 'русский')">русский</button>
+      </div>
+
+      <div id="English" class="tabcontent">
+        <h3>English</h3>
+        <p>This will be in english</p>
+       </div>
+
+      <div id="Español" class="tabcontent">
+        <h3>Español</h3>
+        <p>Esto será presentado en español</p> 
+      </div>
+
+      <div id="pусский" class="tabcontent">
+        <h3>pусский</h3>
+        <p>это будет представлено на pусском языке</p>
+      </div>
     </div>
   </div>
+  
   <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
   <script type="text/javascript" src= "../public/js/local.js"></script>
   <script type="text/javascript" src="../public/slick/slick.js"></script>
