@@ -18,9 +18,11 @@ t_end = time.time() + 15
 fade_client = opc.Client('localhost:7890')
 numLEDs = 512
 prephub = 'https://prephub-web.appspot.com/'
-radio1 = 'http://radio.nolife-radio.com:9000/stream'
-
-
+#radio1 = 'http://radio.nolife-radio.com:9000/stream'
+radio1 = 'https://prod-18-236-222-179.wostreaming.net/alphacorporate-kbfffmaac-ibc4?session-id=4a52f158c5d9d710f541b67ded807a1a&source=website'
+radio2 = 'https://c13.prod.playlists.ihrhls.com/4315/playlist.m3u8?listeningSessionID=5d3f2b54f5671ed2_38217_uOMmp47J__00000001hQa&downloadSessionID=0&at=0&birthYear=null&campid=header&cid=index.html&clientType=web&fb_broadcast=0&host=webapp.US&init_id=8169&modTime=1564459075772&pname=15400&profileid=1149739135&territory=US&uid=1564458907341&age=null&gender=null&amsparams=playerid%3AiHeartRadioWebPlayer%3Bskey%3A1564459075&terminalid=159&awparams=g%3Anull%3Bn%3Anull%3Bccaud%3Aundefined%3BcompanionAds%3Atrue&playedFrom=60&dist=iheart&devicename=web-desktop&stationid=4315'
+radio3='https://c13.prod.playlists.ihrhls.com/3540/playlist.m3u8?listeningSessionID=5d3f2b54f5671ed2_39053_6Ve8Uwu9__00000001j44&downloadSessionID=0&at=0&birthYear=null&campid=header&cid=index.html&clientType=web&fb_broadcast=0&host=webapp.US&init_id=8169&modTime=1564459960793&pname=15400&profileid=1149739135&territory=US&uid=1564458907341&age=null&gender=null&amsparams=playerid%3AiHeartRadioWebPlayer%3Bskey%3A1564459960&terminalid=159&awparams=g%3Anull%3Bn%3Anull%3Bccaud%3Aundefined%3BcompanionAds%3Atrue&playedFrom=59&dist=iheart&devicename=web-desktop&stationid=3540'
+radio4='https://stream5.opb.org/kmhd_web.mp3'
 
 def onStart():
     counter = 0
@@ -79,8 +81,19 @@ def handle_change_lights(data):
     # if color = radio values, maybe add timer?
     if color == '"Radio 1"':
         print('Radio 1 data received by PI') 
-        player=instance.media_player_new()
         media=instance.media_new(radio1)
+        player.set_media(media)
+        player.play()
+    if color == '"Radio 2"':
+        media=instance.media_new(radio2)
+        player.set_media(media)
+        player.play()
+    if color == '"Radio 3"':
+        media=instance.media_new(radio3)
+        player.set_media(media)
+        player.play()
+    if color == '"Radio 4"':
+        media=instance.media_new(radio4)
         player.set_media(media)
         player.play()
 
