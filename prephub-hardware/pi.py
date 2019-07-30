@@ -8,10 +8,9 @@ import vlc
 # Initiate socket client
 socket = socketio.Client()
 
-#define VLC instance
 instance = vlc.Instance('--input-repeat=-1', '--fullscreen')
-#define VLC player
 player = instance.media_player_new()
+t_end = time.time() + 15
 
 #socket.sleep(45)
 
@@ -19,7 +18,7 @@ player = instance.media_player_new()
 fade_client = opc.Client('localhost:7890')
 numLEDs = 512
 prephub = 'https://prephub-web.appspot.com/'
-rad1 = 'https://prod-18-236-222-179.wostreaming.net/alphacorporate-kbfffmaac-ibc4?session-id=ed43dacae368b3cbe1acad4847c90b40&source=website'
+radio1 = 'http://radio.nolife-radio.com:9000/stream'
 
 
 
@@ -78,12 +77,11 @@ def handle_change_lights(data):
         black() 
 
     # if color = radio values, maybe add timer?
-    if color == "'Radio 1'":
-        # define VLC media  
-        media = instance.media_new(url)
-        #set player media
-        player.set_media(radio1)
-        #play the media
+    if color == '"Radio 1"':
+        print('Radio 1 data received by PI') 
+        player=instance.media_player_new()
+        media=instance.media_new(radio1)
+        player.set_media(media)
         player.play()
 
 
