@@ -1,11 +1,17 @@
 import socketio
 import opc, time
 import json
+import vlc
 
 
 
 # Initiate socket client
 socket = socketio.Client()
+
+#define VLC instance
+instance = vlc.Instance('--input-repeat=-1', '--fullscreen')
+#define VLC player
+player = instance.media_player_new()
 
 #socket.sleep(45)
 
@@ -13,14 +19,16 @@ socket = socketio.Client()
 fade_client = opc.Client('localhost:7890')
 numLEDs = 512
 prephub = 'https://prephub-web.appspot.com/'
+rad1 = 'https://prod-18-236-222-179.wostreaming.net/alphacorporate-kbfffmaac-ibc4?session-id=ed43dacae368b3cbe1acad4847c90b40&source=website'
+
 
 
 def onStart():
     counter = 0
-    while counter < 5:
+    while counter < 10:
         try:
             print('\nAttepting to connect')
-            socket.connect(prephub + e, namespaces=['/pi'])
+            socket.connect(prephub, namespaces=['/pi'])
             if socket.sid != None:
                 break
         except:
@@ -28,7 +36,7 @@ def onStart():
             print('Error -> ', error)
             time.sleep(5)
             counter += 1
-    print('Could not connect to server')
+    print('Exiting try block')
 
 
 
@@ -52,7 +60,7 @@ def handle_connect():
 # on `send command` from server parse 
 # `data` sent from server
 # parse json to retieve value element of data
-# which is the color to change the LED lights
+# which is the color to change the LED lights  -- Note: may need to change color or other variable name (color could = color or radio)
 @socket.on('send command', namespace='/pi')
 def handle_change_lights(data):
     color = json.dumps(data['value'])
@@ -68,6 +76,17 @@ def handle_change_lights(data):
         blue()
     if color == '"Black"':
         black() 
+
+    # if color = radio values, maybe add timer?
+    if color == "'Radio 1'":
+        # define VLC media  
+        media = instance.media_new(url)
+        #set player media
+        player.set_media(radio1)
+        #play the media
+        player.play()
+
+
   
     # sends msg back to server stating command was executed
     socket.emit('send command confirm', data, namespace='/pi')
