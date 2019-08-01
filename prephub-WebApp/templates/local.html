@@ -1,120 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-
-.btn-group .button {
-  background-color: #669900;
-  border: 1px solid green;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  width: 150px;
-  display: block;
-}
-
-.btn-group .button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-}
-
-.btn-group .button:hover {
-  background-color: #013220;
-  color: white;
-}
-
-.collapsible {
-  background-color: #669900;
-  color: black;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.active {
-  background-color: #013220;
-  color: white
-}
-
-.collapsible:hover {
-  background-color: #000000;
-  color: white
-}
-
-.collapsible:after {
-  content: '\002B';
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../public/css/local.css">
+  <link rel="stylesheet" type="text/css" href="../public/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="../public/slick/slick-theme.css">
 </head>
+
 <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <a href="/login">Admin</a>
+  <center>
+    <h2>PREPHub</h2>
+  </center>
+  <div class="container">
+    <div class="twitter">
+      <div class="rounded">
+        <img src="http://placehold.it/350x300?text=1">
+      </div>
+      <div class="rounded">
+        <img src="http://placehold.it/350x300?text=2">
+      </div>
+      <div class="rounded">
+        <img src="http://placehold.it/350x300?text=3">
+      </div>
+      <div class="rounded">
+        <img src="http://placehold.it/350x300?text=4">
+      </div>
+      <div class="rounded">
+        <img src="http://placehold.it/350x300?text=5">
+      </div>
+      <div class="rounded">
+        <img src="http://placehold.it/350x300?text=6">
+      </div>
+    </div>
+  </div>
 
-<center><h2>PREPHub</h2></center>
+  <div class="container">
+    <button class="collapsible">PREPHub Radio</button>
+    <div class="content" align="center">
+      <div class="btn-group">
+        <button class="button change-radio">Radio 1</button>
+        <button class="button change-radio">Radio 2</button>
+        <button class="button change-radio">Radio 3</button>
+        <button class="button change-radio">Radio 4</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <button class="collapsible">PREPHub Lights</button>
+    <div class="content" align="center">
+      <div class="btn-group">
+        <button class="button change-light">White</button>
+        <button class="button change-light">Red</button>
+        <button class="button change-light">Blue</button>
+        <button class="button change-light">Green</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <button class="collapsible">About PREPHub</button>
+    <div class="content">
+      <p>Info about PREPHub and its purpose</p>
+    </div>
+  </div>
+  <div class="container">
+    <button class="collapsible">Disaster Protocol</button>
+    <div class="content">
+      <div class="tab">
+        <button class="tablinks" onclick="openLang(event, 'English')">English</button>
+        <button class="tablinks" onclick="openLang(event, 'Español')">Español</button>
+        <button class="tablinks" onclick="openLang(event, 'русский')">русский</button>
+      </div>
 
-<button class="collapsible">PREPHub Radio</button>
-<div class="content">
-<div class="btn-group">
-  <button class="button">Button</button>
-  <button class="button">Button</button>
-  <button class="button">Button</button>
-  <button class="button">Button</button>
-</div>
-</div>
-<button class="collapsible">PREPHub Lights</button>
-<div class="content">
+      <div id="English" class="tabcontent">
+        <h3>English</h3>
+        <p>This will be in english</p>
+       </div>
+
+      <div id="Español" class="tabcontent">
+        <h3>Español</h3>
+        <p>Esto será presentado en español</p> 
+      </div>
+
+      <div id="pусский" class="tabcontent">
+        <h3>pусский</h3>
+        <p>это будет представлено на pусском языке</p>
+      </div>
+    </div>
+  </div>
   
-</div>
-<button class="collapsible">About PREPHub</button>
-<div class="content">
-  <p>Info about PREPHub and its purpose</p>
-</div>
-<button class="collapsible">Disaster Protocol</button>
-<div class="content">
-  <p>Disaster protocol information</p>
-</div>
-<button class="collapsible">About Us</button>
-<div class="content">
-  <p>Info of organizations involved and Capstone software developers</p>
-</div>
-
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
-</script>
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <script type="text/javascript" src= "../public/js/local.js"></script>
+  <script type="text/javascript" src="../public/slick/slick.js"></script>
 </body>
+
 </html>

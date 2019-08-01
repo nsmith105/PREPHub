@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rainbow Test</title>
+</head>
+<body>
+
+<script>
+    function RGB2Color(r,g,b)
+    {
+        return 'rgb(' + Math.round(r) + ',' + Math.round(g) + ',' + Math.round(b) + ')';
+    }
+
+    function colorText(str, phase)
+    {
+        if (phase == undefined) phase = 0;
+        center = 128;
+        width = 127;
+        frequency = Math.PI / str.length;
+        for (var i = 0; i < str.length; ++i) {
+            red   = Math.sin(frequency*i+2+phase) * width + center;
+            green = Math.sin(frequency*i+0+phase) * width + center;
+            blue  = Math.sin(frequency*i+4+phase) * width + center;
+            document.write( '<font style="color:' + RGB2Color(red,green,blue) + '">' + str.substr(i,1) + '</font>');
+        }
+    }
+
+    colorText('Now is the time for all good hackersr to come to the aid of their country.');
+</script>
+
+
+</body>
+</html>
