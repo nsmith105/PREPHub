@@ -5,6 +5,9 @@
 
 import tweepy
 from tweepy import OAuthHandler
+import requests
+import datetime
+import json
 
 consumer_key = 'sefz1DdoW3BHgikV2aGGhFSFA'
 consumer_secret = 'm4qooBtOxfy13Fsxiv6LhJdd62P4FEjc4PVq8ysNZeM4lbqSHP'
@@ -30,11 +33,17 @@ def get_tweets(username):
     # date/time, text
     for status in tweets:
         # Appending tweets to the empty array tmp
-        tmp.append(status.full_text)
-    print(tmp)
+        tweet = status.full_text
+        t = status.created_at
+        t = t.strftime("%B") + ', ' + str(t.day)
+        x = '{ "text":' + "\"" + str(tweet) + "\"" + ',"time":' + "\"" + str(t) + "\"" + '}'
+        tmp.append(json.loads(x))
     return tmp
 
 if __name__ == '__main__':
     # Here goes the twitter handle for the user
     # whose tweets are to be extracted
     tweetArray = get_tweets("Portland_State")
+    API_ENDPOINT = 'https://prephub-web.appspot.com/twitter'
+    # sending post request and saving response as response object
+    r = requests.post(url = API_ENDPOINT, json=({'tweets':tweetArray}))
