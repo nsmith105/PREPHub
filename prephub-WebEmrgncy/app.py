@@ -31,13 +31,11 @@ def login_press():
 def cancel_press():
   return redirect(url_for("emergency"))
 
-@app.route("/login_submit", methods=["POST"])
+@app.route("/submit", methods=["POST"])
 def submit_press():
   user = request.form["uname"]
   password = request.form["psw"]
-  if not user or not password:
-    return redirect(url_for("login_press"))
-  elif is_valid(user, password):
+  if is_valid(user, password):
     return redirect(url_for("admin"))
   else:
     return redirect(url_for("login_press"))
