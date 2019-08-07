@@ -1,3 +1,19 @@
+function openPage(pageName,elmnt) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
 $(document).ready(function () {
   let $container = $(".container");
 
@@ -7,7 +23,7 @@ $(document).ready(function () {
   /**
    * This handles expanding/contracting the collapsibles
    */
-  $container.on("click", ".collapsible", function () {
+/*  $container.on("click", ".collapsible", function () {
     let $this = $(this);
     let content = $this.next();
     if (content.css("max-height") != "0px") {
@@ -17,11 +33,11 @@ $(document).ready(function () {
       $this.addClass("active");
       content.css("max-height", content.prop("scrollHeight"));
     }
-  });
+  });*/
   /**
    * Carousel stuff, subject to change to a different
    * tech
-   */
+   
   $("#twitter").slick({
     dots: true,
     infinite: false,
@@ -49,7 +65,6 @@ $(document).ready(function () {
     ]
   });
   /**** SOCKET.io related ****/
-
   /**
    * When a radio/light button is clicked, \
    * we grab the value and call send_data
