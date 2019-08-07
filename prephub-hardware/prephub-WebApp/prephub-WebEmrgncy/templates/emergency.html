@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  background-color: white;
+  display: none;
+  padding: 100px 20px;
+  height: auto;
+}
+
+.slideshow {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+.slide {
+    width: 500px;
+    height: 500px;
+    position: center;
+    left: 0;
+    top: 0;
+}
+
+
+#English {background-color: red;}
+#Spanish {background-color: red;}
+#Russian {background-color: red;}
+#Vietnamese {background-color: red;}
+</style>
+</head>
+<body>
+
+
+<button class="tablink" onclick="openPage('English', this)" id="defaultOpen">English</button>
+<button class="tablink" onclick="openPage('Spanish', this)" id="defaultOpen">Spanish</button>
+<button class="tablink" onclick="openPage('Russian', this)">Russian</button>
+<button class="tablink" onclick="openPage('Vietnamese', this)">Vietnamese</button>
+
+<div id="English" class="tabcontent">
+  <a href="{{url_for('login_press')}}">Admin</a>
+  <h3>English</h3>
+  <p>Emergency info in English</p>
+  <div id="slideshow">
+    <img class="slide" src="static/pics/1.jpg" />
+    <img class="slide" src="static/pics/2.jpg" />
+</div>
+</div>
+
+<div id="Spanish" class="tabcontent">
+  <a href="{{url_for('login_press')}}">Admin</a>
+  <h3>Spanish</h3>
+  <p>Emergency info in Spanish</p>
+</div>
+
+<div id="Russian" class="tabcontent">
+  <a href="{{url_for('login_press')}}">Admin</a>
+  <h3>Russian</h3>
+  <p>Emergency info in Russian</p>
+</div>
+
+<div id="Vietnamese" class="tabcontent">
+  <a href="{{url_for('login_press')}}">Admin</a>
+  <h3>Vietnamese</h3>
+  <p>Emergency info in Vietnamese</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("slide");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+   
+</body>
+</html> 
+
