@@ -87,11 +87,12 @@ def main():
     loadRSS() 
     
     # Files
-    testFeed = 'psufeed.xml'
+    emptyFeed = 'PSU RSS Demo - Empty.xml'
+    policeActivityFeed = 'PSU RSS Demo - Police Activity.xml'
     PSUFeed = 'PSU-RSS-Feed.xml'
 
     # parse xml file to return news feed
-    newsitems = parseXML(testFeed) 
+    newsitems = parseXML(policeActivityFeed) 
     
     # parse news feed looking for emergency alerts
     for dic in newsitems:
@@ -109,6 +110,8 @@ def main():
             API_ENDPOINT = 'https://prephub-web.appspot.com/activeEmergency'
             # sending post request and saving response as response object
             r = requests.post(url = API_ENDPOINT, json=({'on':activeEmergency}))
+    print(newsitems)
+    
                     
     
 if __name__ == "__main__": 
