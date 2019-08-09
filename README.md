@@ -12,3 +12,5 @@ Project Features
 - Parse Emergency Alerts: Web app and lights change based on information passed through Portland States RSS feed
 - Emergency Mode: In case of an emergency the LED lights turn amber-red to alert pedestrians 
 - Sound Alerts: speakers will be able to cycle between popular radio stations in Portland, Oregon. In case of an emergency, the speakers will play a pre-recorded message warning pedestrians of a potential threat
+
+Check out https://prephub.org/ to learn more!
