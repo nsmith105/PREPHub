@@ -1,0 +1,2 @@
+opens local.html to fullscreen
+chromium-browser /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-Server/templates/local.html --start-fullscreen
