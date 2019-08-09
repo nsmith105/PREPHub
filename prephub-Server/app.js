@@ -2,15 +2,21 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+<<<<<<< HEAD
 var socket = require('socket.io')(http); //Communication between server/webpage and server/pi
 var request = require('request'); //To fetch RSS feed data
 var xml2js = require('xml2js'); //To parse RSS feed XML data
 
 var rssURL = 'http://prephub-web.appspot.com/rss'; //URL of RSS feed
+=======
+var socket = require('socket.io')(http);
+
+>>>>>>> 6132d3ca62826872f50a6cadc2df1506b62b31d9
 var lightingUnlockTime = 0; //Integer in milliseconds when lighting lock will release
 var radioUnlockTime = 0; //Integer in milliseconds when radio lock will release
 var lightingLockTime = 10000; //How long should the lights be locked after change
 var radioLockTime = 10000; //How long should the radio be locked after change
+<<<<<<< HEAD
 var rssInterval = 3000; //How often should RSS feed be checked
 var rssData = [{}]; //Parsed RSS data will be stored here in fields: 'description', 'date'
 
@@ -57,6 +63,8 @@ function sendData() {
   //if (rssData[2].description === 'PSU Alert: Police activity near the corner of 6th and Montgomery. Avoid the area.')
   //  console.log("Police!");
 }
+=======
+>>>>>>> 6132d3ca62826872f50a6cadc2df1506b62b31d9
 
 // Socket IO Namespaces
 var ioWeb = socket.of('/web');
@@ -65,15 +73,20 @@ var ioPi = socket.of('/pi');
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
+<<<<<<< HEAD
   res.sendFile(__dirname + '/templates/local.html');
 });
 
 app.get('/rss', (req, res) => {
   res.sendFile(__dirname + '/psufeed.xml')
+=======
+    res.sendFile(__dirname + '/templates/local.html');
+>>>>>>> 6132d3ca62826872f50a6cadc2df1506b62b31d9
 });
 
 /********* Socket.io Stuff *********/
 //* web namespace */
+<<<<<<< HEAD
 ioWeb.on('connection', function (socket) {
   console.log("a web user has connected.");
   socket.on('send command', function (data) {
@@ -112,5 +125,45 @@ ioPi.on('connection', function (socket) {
 });
 let port = process.env.PORT || 8080;
 http.listen(port, function () {
+=======
+ioWeb.on('connection', function(socket){
+    console.log("a web user has connected.");
+    socket.on('send command', function(data){
+      console.log('command received');
+
+      //Lighting lock check
+      if(data['command'] === 'Change Light'){
+        if(Date.now() >= lightingUnlockTime){
+          lightingUnlockTime = Date.now()+10000;
+          ioPi.emit('send command', data);
+        }
+        else{
+          console.log('lighting is currently locked');
+        }
+      }
+      //Radio lock check
+      if(data['command'] === 'Change Radio'){
+        if(Date.now() >= radioUnlockTime){
+          radioUnlockTime = Date.now()+10000;
+          ioPi.emit('send command', data);
+        }
+        else{
+          console.log('radio is currently locked');
+        }
+      }
+
+    });
+});
+/* pi namespace */
+ioPi.on('connection', function(socket){
+    console.log("a pi user has connected.");
+    socket.on('send command confirm', function(msg){
+      console.log("command confirmation received from Pi");
+      ioWeb.emit('send command confirm', msg);
+  });
+});
+let port = process.env.PORT || 8080;
+http.listen(port, function(){
+>>>>>>> 6132d3ca62826872f50a6cadc2df1506b62b31d9
   console.log('listening on: ' + port);
 });

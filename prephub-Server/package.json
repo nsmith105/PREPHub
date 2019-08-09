@@ -4,8 +4,13 @@
   "description": "Prephub server, hostsed on GCP.",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node app.js",
     "deploy": "gcloud app deploy",
+=======
+    "start":"node app.js",
+    "deploy":"gcloud app deploy",
+>>>>>>> 6132d3ca62826872f50a6cadc2df1506b62b31d9
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,8 +18,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "http": "0.0.0",
+<<<<<<< HEAD
     "request": "^2.88.0",
     "socketio": "^1.0.0",
     "xml2js": "^0.4.19"
+=======
+    "socketio": "^1.0.0"
+>>>>>>> 6132d3ca62826872f50a6cadc2df1506b62b31d9
   }
 }
