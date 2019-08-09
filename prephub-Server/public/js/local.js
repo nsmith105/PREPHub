@@ -40,7 +40,7 @@ $(document).ready(function () {
    * When a radio/light button is clicked, \
    * we grab the value and call send_data
    */
-/*  jQuery(".change-radio").on("click", function () {
+  jQuery(".change-radio").on("click", function () {
     let val = $(this).text();
     send_data("Change Radio", val);
   });
@@ -62,7 +62,7 @@ $(document).ready(function () {
   socket.on('connect', () => {
     console.log('This client successfully connected to the server');
   });
-  */
+  
   function openLang(evt, lang) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
