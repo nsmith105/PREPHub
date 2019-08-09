@@ -3,25 +3,16 @@
 
 
 <head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}
-  ">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
 
   <title>Post Emergency Disaster Protocol </title>
 </head>
 
 <body>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
+  <script src="static/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">PREPHUB</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -36,12 +27,13 @@
             Translate
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/english">English</a>
-            <a class="dropdown-item" href="/spanish">Spanish</a>
-            <a class="dropdown-item" href="/vietnamese">Vietnamese</a>
-            <a class="dropdown-item" href="/russian">Russian</a>
             <a class="dropdown-item" href="/chinese_simplified">Chinese (Simplified)</a>
             <a class="dropdown-item" href="/chinese_traditional">Chinese (Traditional)</a>
+            <a class="dropdown-item" href="/english">English</a>
+            <a class="dropdown-item" href="/korean">Korean</a>
+            <a class="dropdown-item" href="/russian">Russian</a>
+            <a class="dropdown-item" href="/spanish">Spanish</a>
+            <a class="dropdown-item" href="/vietnamese">Vietnamese</a>
           </div>
         </li>
       </ul>
@@ -60,7 +52,7 @@
         <li>Watch for fallen power lines or broken gas lines; stay out of damaged areas.</li>
         <li>Text your contacts to let them know you are safe.</li>
         <li>Check on your neighbors.</li>
-        <li>If you are trapped in the house, use your whistle orbang something to call for help.
+        <li>If you are trapped in the house, use your whistle or bang something to call for help.
           <br>
           <br>
           <b>Other potential hazards:</b>
@@ -68,10 +60,10 @@
         </li>
         <li>If you smell a gas leak, shut off the main gas valve if you can. Go outside and wait for the gas smell to
           goaway. Call the utility company to turn gas back on.</li>
-        <li>Shut off power at the breaker box if electrical wiringis damaged. Leave the power off until damage is
+        <li>Shut off power at the breaker box if electrical wiring is damaged. Leave the power off until damage is
           repaired.
         </li>
-        <li>Stay away from chimneys and walls made of brick.They could topple during an aftershock.</li>
+        <li>Stay away from chimneys and walls made of brick. They could topple during an aftershock.</li>
       </ul>
       <div id="images" class="column">
         <div> <img src="{{ url_for('static', filename='images/1.png') }}"></div>
