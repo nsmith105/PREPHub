@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0">
+<channel>
+  <title>PSU Mobile App</title>
+  <link>http://rss.blackboardconnect.com/239300/PSUAlert/feed.xml</link>
+  <description>RSS channel for PSU Mobile Application.</description>
+  <lastBuildDate>Fri, 25 May 2018 18:18:35 GMT</lastBuildDate>
+  <language>en-Us</language>
+  <atom:link rel="self" type="application/rss+xml" href="http://rss.blackboardconnect.com/239300/PSUAlert/feed.xml" xmlns:atom="http://www.w3.org/2005/Atom" />
+  <item>
+    <guid isPermaLink="false">http://rss.blackboardconnect.com/239300/PSUAlert/46307847.xml</guid>
+    <title>PSU Alert</title>
+    <link>http://rss.blackboardconnect.com/239300/PSUAlert/46307847.xml</link>
+    <description>PSU Alert: Campus remains open. 6th Ave. near Montgomery remains closed as part of Portland Police investigation. Check pdx.edu for updates.</description>
+    <pubDate>Fri, 25 May 2018 18:18:35 GMT</pubDate></item>
+  <item>
+    <guid isPermaLink="false">http://rss.blackboardconnect.com/239300/PSUAlert/46306021.xml</guid>
+    <title>PSU Alert</title>
+    <link>http://rss.blackboardconnect.com/239300/PSUAlert/46306021.xml</link>
+    <description>PSU Alert: Police activity near the corner of 6th and Montgomery. Avoid the area.</description>
+    <pubDate>Fri, 25 May 2018 17:27:25 GMT</pubDate>
+  </item>
+</channel>
+</rss>
