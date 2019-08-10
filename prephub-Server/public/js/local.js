@@ -18,7 +18,7 @@ $(document).ready(function () {
   let $container = $(".container");
 
   // Socket connection to web namespace '/user'
-  //var socket = io("http://localhost:8080/web");
+  let socket = io("http://localhost:8080/web");
 
   /**
    * This handles expanding/contracting the collapsibles
@@ -70,12 +70,10 @@ $(document).ready(function () {
 
   socket.on('rss feed', (data) => {
     if(data['description']){
-      console.log();
-      console.log();
-
       let desc = data['description'];
       let date = data['date'];
       // code to append the values to the banner here
+      jQuery('.banner').text(date+": "+desc);
     }
     else if(data === "rss feed clear"){
       console.log("No update:"+data);
@@ -95,5 +93,7 @@ function openLang(evt, lang) {
     document.getElementById(lang).style.display = "block";
     evt.currentTarget.className += " active";
   }
+
+  
 
 });
