@@ -26,6 +26,12 @@ ol {
   padding-left: 10%;
 }
 
+.banner {
+  background-color: yellow;
+  margin: 0;
+  padding:0;
+}
+
 /* Style tab links */
 .tablink {
   background-color: #558000;

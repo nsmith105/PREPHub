@@ -51,7 +51,7 @@ $(document).ready(function () {
   });
 
   // This function is called when a button with a light/radio value is clicked
-  function send_data(cmd, val) {
+/*  function send_data(cmd, val) {
     socket.emit("send command", { command: cmd, value: val });
   }
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
    * and sent to user from server
    */
 
-  socket.on('rss feed', (data) => {
+/*  socket.on('rss feed', (data) => {
     if(data['description']){
       console.log();
       console.log();
@@ -80,7 +80,7 @@ $(document).ready(function () {
     else if(data === "rss feed clear"){
       console.log("No update:"+data);
     }
-  });
+  });*/
   
 function openLang(evt, lang) {
     var i, tabcontent, tablinks;
