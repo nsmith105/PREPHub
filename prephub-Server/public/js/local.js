@@ -62,8 +62,27 @@ $(document).ready(function () {
   socket.on('connect', () => {
     console.log('This client successfully connected to the server');
   });
+
+  /**
+   * When rss data is parsed
+   * and sent to user from server
+   */
+
+  socket.on('rss feed', (data) => {
+    if(data['description']){
+      console.log();
+      console.log();
+
+      let desc = data['description'];
+      let date = data['date'];
+      // code to append the values to the banner here
+    }
+    else if(data === "rss feed clear"){
+      console.log("No update:"+data);
+    }
+  });
   
-  function openLang(evt, lang) {
+function openLang(evt, lang) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
