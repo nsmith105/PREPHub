@@ -22,7 +22,7 @@ numLEDs = 512
 light_rainbow = False
 print('value of light rainbow after var declar.')
 print(light_rainbow)
-light_white = False
+#light_white = False
 
 #colors
 #other_blue = [ (41, 94, 194) ] * numLEDs
@@ -92,7 +92,7 @@ def handle_change_lights(data):
     print('Received request from server: ' + data['value']) #maybe remove the 
    
     global light_rainbow
-    global light_white
+    #global light_white
     if cmd == '"Reset"':
         print('inside if reset') 
         print(light_rainbow) 
@@ -108,7 +108,7 @@ def handle_change_lights(data):
         cmd_snow()
     if cmd == '"White"':
         light_rainbow = False
-        light_white = True
+        #light_white = True
         cmd_white()
     # executes caution() to test that caution() works, needs to be changed back to another preset 
     if cmd == '"Green"':
@@ -211,31 +211,31 @@ def rainbow ():
         time.sleep(.1)
 
 def loop():
-    time.sleep(1)
+    #time.sleep(1)
     fade_client.put_pixels(black)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(white)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(violet)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(indigo)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(blue)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(green)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(yellow)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(orange)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(red)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(white)
-    time.sleep(1)
+    time.sleep(2)
     fade_client.put_pixels(black)
-    time.sleep(1)
+    #time.sleep(1)
 
-def  switch_white():
+#def  switch_white():
     
 
 onStart()
