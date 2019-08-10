@@ -6,17 +6,42 @@ var socket = require('socket.io')(http); //Communication between server/webpage 
 var request = require('request'); //To fetch RSS feed data
 var xml2js = require('xml2js'); //To parse RSS feed XML data
 
-var rssURL = 'http://prephub-web.appspot.com/rss'; //URL of RSS feed
+var rssURL = 'http://rss.blackboardconnect.com/239300/PSUAlert/feed.xml'; //URL of RSS feed
 var lightingUnlockTime = 0; //Integer in milliseconds when lighting lock will release
 var radioUnlockTime = 0; //Integer in milliseconds when radio lock will release
 var lightingLockTime = 10000; //How long should the lights be locked after change
 var radioLockTime = 10000; //How long should the radio be locked after change
-var rssInterval = 3000; //How often should RSS feed be checked
+var rssInterval = 30000; //How often should RSS feed be checked
 var rssData = [{}]; //Parsed RSS data will be stored here in fields: 'description', 'date'
+var rssRelevantWindow = 43200000; //Ignore RSS feeds older than this
+
+var index = 0; //For demo purposes, index will cycle through example RSS URLs
+var demo = false;//Enable/disable demo mode
 
 //Function will automatically run every $rssInterval seconds to fetch and parse RSS feed data
 setInterval(() => {
-  console.log("getting RSS data!");
+  console.log("getting RSS data! -- " + index);
+
+  //Demo for testing RSS cases
+  if (demo === true) {
+    switch (index) {
+      case 0:
+        rssURL = 'http://prephub-web.appspot.com/rss_empty';
+        break;
+      case 1:
+        rssURL = 'http://prephub-web.appspot.com/rss_police';
+        break;
+      case 2:
+        rssURL = 'http://prephub-web.appspot.com/rss_police_clear';
+        break;
+    }
+    index++;
+    if (index === 3) {
+      index = 0;
+    }
+  }
+
+  //Demo for testing RSS cases
 
   //Send HTTP request to get XML data from rssURL
   request(rssURL, (error, response, body) => {
@@ -34,6 +59,17 @@ setInterval(() => {
 
     //Parse XML data stored in body string
     parser.parseString(body, (err, result) => {
+
+      //Remove all old RSS entries from list before checking for new ones
+      for (let i = rssData.length - 1; i > 0; i--)
+        rssData.pop();
+
+      //The RSS feed is empty
+      if (!result.rss.channel[0].item) {
+        sendData();
+        return;
+      }
+
       //Extract relevant info from body string and push to rssData array
       for (let i = 0; i < result.rss.channel[0].item.length; i++) {
         rssData.push({
@@ -48,14 +84,27 @@ setInterval(() => {
 }
   , rssInterval);
 
-//Scan RSS feed for keywords. e.g. 'Police', 'Snow', etc and then act on them
+//Send RSS feed data to webpage & Pi
 function sendData() {
-  console.log(rssData[1].date);
-
-  console.log(new Date(rssData[1].date).getTime());
-
-  //if (rssData[2].description === 'PSU Alert: Police activity near the corner of 6th and Montgomery. Avoid the area.')
-  //  console.log("Police!");
+  //Check if there are entries in the RSS feed array
+  if (rssData.length > 1) {
+    let rssTime = (new Date(rssData[1].date).getTime());
+    let nowTime = (new Date().getTime());
+    //Check how recent the latest RSS feed is. Will not send feed posts older
+    //than $rssRelevantWindow milliseconds
+    if ((nowTime - rssTime) < rssRelevantWindow) {
+      console.log(rssData[1]);
+      ioWeb.emit('rss feed', rssData[1]);
+      console.log('sending rss feed');
+    }
+    else {
+      console.log("rss data too old, not sending");
+    }
+  }
+  //If no entries in RSS feed array, send all clear message
+  else {
+    ioWeb.emit('rss feed', "rss feed clear");
+  }
 }
 
 // Socket IO Namespaces
@@ -68,13 +117,24 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/templates/local.html');
 });
 
-app.get('/rss', (req, res) => {
-  res.sendFile(__dirname + '/psufeed.xml')
+app.get('/rss_empty', (req, res) => {
+  res.sendFile(__dirname + '/rss_empty.xml')
+});
+
+app.get('/rss_police', (req, res) => {
+  res.sendFile(__dirname + '/rss_police.xml')
+});
+
+app.get('/rss_police_clear', (req, res) => {
+  res.sendFile(__dirname + '/rss_police_clear.xml')
 });
 
 /********* Socket.io Stuff *********/
 //* web namespace */
 ioWeb.on('connection', function (socket) {
+  //Send RSS data to user on connection to server if any is currently being stored
+  sendData();
+
   console.log("a web user has connected.");
   socket.on('send command', function (data) {
     console.log('command received');
@@ -82,7 +142,7 @@ ioWeb.on('connection', function (socket) {
     //Lighting lock check
     if (data['command'] === 'Change Light') {
       if (Date.now() >= lightingUnlockTime) {
-        lightingUnlockTime = Date.now() + 10000;
+        lightingUnlockTime = Date.now() + lightingLockTime;
         ioPi.emit('send command', data);
       }
       else {
@@ -92,7 +152,7 @@ ioWeb.on('connection', function (socket) {
     //Radio lock check
     if (data['command'] === 'Change Radio') {
       if (Date.now() >= radioUnlockTime) {
-        radioUnlockTime = Date.now() + 10000;
+        radioUnlockTime = Date.now() + radioLockTime;
         ioPi.emit('send command', data);
       }
       else {
