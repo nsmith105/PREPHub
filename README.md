@@ -1,4 +1,4 @@
-##What is PREPHub?
+What is PREPHub?
 ------
 
 PREPHub is designed as a meeting site in the event of natural disasters. Each PREPHub comes with food and safety supplies, audio system, PV Panel, USB Charging port, and a pedal-powered generator. 
