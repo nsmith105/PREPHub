@@ -6,7 +6,7 @@ const port = 8082;
 
 app.use(express.static(__dirname + "/public"));
 app.use('/images', express.static(__dirname + '/public/images'));
-app.use('/images', express.static('public/images'), serveIndex('public/images'))
+app.use('/images', express.static(__dirname + '/public/images'), serveIndex(__dirname +'/public/images'))
 
 
 app.get("/", function(req, res) {
