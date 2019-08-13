@@ -5,6 +5,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial;
+  background-color: #2e2e1f;
 }
 
 h2 {
@@ -88,6 +89,8 @@ ol {
 .container {
   background-color: white;
   height: 100%;
+  width: 100%;
+  padding: 0 25px;
 }
  
 .collapsible {
@@ -135,9 +138,4 @@ ol {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
-}
-
-
-.container {
-  padding: 0 25px;
 }
