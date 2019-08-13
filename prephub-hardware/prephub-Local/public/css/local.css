@@ -5,6 +5,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial;
+  background-color: #2e2e1f;
 }
 
 h2 {
@@ -33,61 +34,31 @@ ol {
 }
 
 /* Style tab links */
-.tablink {
+.title {
   background-color: #558000;
+  text-align: center;
   color: white;
   float: left;
   border: none;
   outline: none;
-  cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 20%;
-}
-
-.tablink:hover {
-  background-color: #777;
+  width: 100%;
 }
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
   color: black;
   background-color: #2e2e1f;
-  display: none;
   padding: 0px 100px;
   height: auto;
-}
-
-#Twitter {background-color: #2e2e1f;}
-#Radio {background-color: #2e2e1f;}
-#Lights {background-color: #2e2e1f;}
-#Disaster {background-color: #2e2e1f;}
-#About {background-color: #2e2e1f}
-
-.btn-group .button {
-  border-radius: 5px;
-  background-color: #9ACD32;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  margin-top: 0px;
-  margin-bottom: 5px;
-  float: center;
-}
-
-.btn-group .button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-  float: center;
 }
 
 .container {
   background-color: white;
   height: 100%;
+  width: 100%;
+  padding: 0 25px;
 }
  
 .collapsible {
@@ -135,9 +106,4 @@ ol {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
-}
-
-
-.container {
-  padding: 0 25px;
 }
