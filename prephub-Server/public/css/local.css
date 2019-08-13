@@ -74,3 +74,9 @@ li, p {
 .slick-prev:before, .slick-next:before {
   color:black !important;
 }
+
+
+.alert {
+  margin-bottom: 0 !important;
+  text-align: center;
+}

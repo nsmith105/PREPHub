@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../public/css/new.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <div id="backdrop">
+        <div class="d-flex justify-content-center">
+            <img src="../public/images/prephub_logo.PNG" id="prephub-logo" alt="PREPHub Logo">
+        </div>
+        <div id="nav-backdrop">
+            <nav>
+                <div class="navbar navbar-primary bg-dark flex-column rounded" id="nav-tab"
+                    role="tablist">
+                    <a class="nav-item nav-link active" id="nav-radio-tab" data-toggle="tab" href="#nav-radio"
+                        role="tab" aria-controls="nav-radio" aria-selected="true">Radio</a>
+                    <a class="nav-item nav-link" id="nav-light-tab" data-toggle="tab" href="#nav-light" role="tab"
+                        aria-controls="nav-light" aria-selected="false">Light</a>
+                    <a class="nav-item nav-link" id="nav-preparation-tab" data-toggle="tab" href="#nav-preparation"
+                        role="tab" aria-controls="nav-preparation" aria-selected="false">Preparation</a>
+                    <a class="nav-item nav-link" id="nav-twitter-tab" data-toggle="tab" href="#nav-twitter" role="tab"
+                        aria-controls="nav-twitter" aria-selected="false">Twitter</a>
+                </div>
+            </nav>
+        </div>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-radio" role="tabpanel" aria-labelledby="nav-radio-tab">
+                <button type="button" class="btn btn-success btn-lg btn-block">Radio 1</button>
+                <button type="button" class="btn btn-success btn-lg btn-block">Radio 2</button>
+                <button type="button" class="btn btn-success btn-lg btn-block">Radio 3</button>
+                <button type="button" class="btn btn-success btn-lg btn-block">Radio 4</button>
+            </div>
+            <div class="tab-pane fade" id="nav-light" role="tabpanel" aria-labelledby="nav-light-tab">
+                <button type="button" class="btn btn-success btn-lg btn-block">Lights 1</button>
+                <button type="button" class="btn btn-success btn-lg btn-block">Lights 2</button>
+                <button type="button" class="btn btn-success btn-lg btn-block">Lights 3</button>
+                <button type="button" class="btn btn-success btn-lg btn-block">Lights 4</button>
+            </div>
+
+            <div class="tab-pane fade" id="nav-preparation" role="tabpanel" aria-labelledby="nav-preparation-tab">Some
+                text here</div>
+            <div class="tab-pane fade show" id="nav-twitter" role="tabpanel" aria-labelledby="nav-twitter-tab">
+                <a class="twitter-timeline" href="https://twitter.com/Portland_State?ref_src=twsrc%5Etfw">Tweets by
+                    Portland_State</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
