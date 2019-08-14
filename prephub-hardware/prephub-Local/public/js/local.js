@@ -13,7 +13,6 @@ $(document).ready(function () {
     } else {
       $this.addClass("active");
       content.css("max-height", content.prop("scrollHeight"));
-    }
-   
+    }   
   });
 });
