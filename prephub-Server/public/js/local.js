@@ -80,7 +80,7 @@ $(document).ready(function () {
     }
   });
   
-function openLang(evt, lang) {
+  function openLang(evt, lang) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -93,7 +93,4 @@ function openLang(evt, lang) {
     document.getElementById(lang).style.display = "block";
     evt.currentTarget.className += " active";
   }
-
-  
-
 });
