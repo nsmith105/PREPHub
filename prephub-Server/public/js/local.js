@@ -41,7 +41,7 @@ $(document).ready(function () {
    * we grab the value and call send_data
    */
   jQuery(".change-radio").on("click", function () {
-    let val = $(this).text();
+    let val = $(this).val();
     send_data("Change Radio", val);
   });
 
