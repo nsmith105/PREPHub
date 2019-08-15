@@ -1,0 +1,47 @@
+prephub-vm
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::9000
+    at Object._errnoException (util.js:1022:11)
+    at _exceptionWithHostPort (util.js:1044:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1492:7)
+    at Function.listen (/home/schrad3/PREPHub-TeamD/prephub-Server/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/schrad3/PREPHub-TeamD/prephub-Server/app.js:4:18)
+    at Module._compile (module.js:652:30)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+prephub-vm
+getting RSS data! -- 0
+a web user has connected.
+getting RSS data! -- 1
+{ description: 'PSU Alert: Police activity near the corner of 6th and Montgomery. Avoid the area.',
+  date: 'Fri, 25 May 2018 17:27:25 GMT' }
+sending rss feed
+getting RSS data! -- 2
+{ description: 'PSU Alert: Campus remains open. 6th Ave. near Montgomery remains closed as part of Portland Police investigation. Check pdx.edu for updates.',
+  date: 'Fri, 25 May 2018 18:18:35 GMT' }
+sending rss feed
+getting RSS data! -- 0
+a web user has connected.
+getting RSS data! -- 1
+{ description: 'PSU Alert: Police activity near the corner of 6th and Montgomery. Avoid the area.',
+  date: 'Fri, 25 May 2018 17:27:25 GMT' }
+sending rss feed
+getting RSS data! -- 2
+{ description: 'PSU Alert: Campus remains open. 6th Ave. near Montgomery remains closed as part of Portland Police investigation. Check pdx.edu for updates.',
+  date: 'Fri, 25 May 2018 18:18:35 GMT' }
+sending rss feed
+module.js:549
+    throw err;
+    ^
+
+Error: Cannot find module '/home/schrad3/PREPHub-TeamD/prephub-Server/PREPHub-TeamD/prephub-Server/app.js'
+    at Function.Module._resolveFilename (module.js:547:15)
+    at Function.Module._load (module.js:474:25)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3

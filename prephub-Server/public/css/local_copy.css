@@ -5,32 +5,11 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial;
-  background-color: #2e2e1f;
 }
 
-h2 {
+li, p {
   margin: 0;
   padding: 0;
-}
-
-ol {
-  margin: 0px 0;
-  padding: 0;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-ol {
-  padding-left: 10%;
-}
-
-.banner {
-  background-color: yellow;
-  margin: 0;
-  padding:0;
 }
 
 /* Style tab links */
@@ -89,53 +68,9 @@ ol {
 .container {
   background-color: white;
   height: 100%;
-  width: 100%;
-  padding: 0 25px;
 }
  
-.collapsible {
-  border-radius: 5px;
-  background-color: #9ACD32;
-  color: black;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.heading {
-  text-align: center;
-}
-
-.active {
-  background-color: #013220;
-  color: white
-}
-
-.collapsible:hover {
-  background-color: black;
-  color: white
-}
-
-.collapsible:after {
-  content: '\002B';
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+/* Arrow color for slick carousel */
+.slick-prev:before, .slick-next:before {
+  color:black !important;
 }
