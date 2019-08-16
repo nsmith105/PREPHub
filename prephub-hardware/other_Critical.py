@@ -1,5 +1,4 @@
-#
-/usr/bin/env python
+#/usr/bin/env python
 
 # Open Pixel Control client: All lights to solid white
 

@@ -14,12 +14,9 @@ try:
     data = clientSocket.recv(32)
     print("***Connected***")
     if data:
-        print("Recieved: ", data)
-        if data == b'0':
-            print("Emergency Off: ", data)
+        if data == b'o':
             critical.off()
         else:
-            print("Run for the hills!")
             critical.warning()
 
 except:

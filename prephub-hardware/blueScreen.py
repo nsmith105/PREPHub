@@ -23,6 +23,7 @@ while 1:
         else:
             print("Run for the hills!")
             critical.warning()
+            time.wait(1)
 
 clientSocket.close()
 serverSocket.close()
