@@ -5,7 +5,7 @@ import calendar
 import vlc
 #import threading
 
-#TODO tell Justin or whoever is in charge of the server to implement the RSS feed cmd for defaulot/reset
+#TODO tell Justin or whoever is in charge of the server to implement the RSS feed cmd for default/reset
 
 # Initiate socket client
 socket = socketio.Client()
@@ -154,7 +154,6 @@ def change_radio(station):
     player.play()
     del audio
 
-#base setting
 def rainbow ():
     print('inside rainbow()') 
     print(light_rainbow)
