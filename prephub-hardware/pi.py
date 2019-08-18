@@ -3,13 +3,32 @@ import opc, time
 import json
 import calendar
 import vlc
-#import threading
+import threading
+import bluetooth
 
 #TODO tell Justin or whoever is in charge of the server to implement the RSS feed cmd for default/reset
 
 # Initiate socket client
 socket = socketio.Client()
 
+# Initiate bluetooth socket
+bSocket = bluetooth.BluetoothSocket( bluetooth.RFCOMM )
+
+#Below are PI specific settings
+#********Uncomment Below for goodPI*******
+port = 2
+bSocket.bind(('b8:27:eb:c8:66:03',port))
+#******************************************
+
+#********Uncomment Below for screenPI*******
+#port = 3
+#bSocket.bind(('b8:27:eb:3d:ee:57',port))
+#*******************************************
+print("Port: ", port)
+bSocket.listen(1)
+btLock = False
+
+#VLC Media Player Initialization
 instance = vlc.Instance('--input-repeat=-1', '--fullscreen')
 player = instance.media_player_new()
 
@@ -35,6 +54,8 @@ colors = {'"White"':white,'"Green"':green,'"Purple"':purple,'"Blue"':blue}
 # this is for live version prephub = 'http://tinyurl.com/prephubpdx'
 # this is for vm instance that we'll use to test
 prephub = 'http://35.197.44.95:9000/'
+
+#**********************Radio Presets**********************#
 # radio 1 is Jammin 95.5 FM
 radio1 = 'https://prod-18-236-222-179.wostreaming.net/alphacorporate-kbfffmaac-ibc4?session-id=4a52f158c5d9d710f541b67ded807a1a&source=website'
 # radio 2 is 106.7 The Eagle
@@ -43,10 +64,13 @@ radio2 = 'https://c13.prod.playlists.ihrhls.com/4315/playlist.m3u8?listeningSess
 radio3='https://c13.prod.playlists.ihrhls.com/3540/playlist.m3u8?listeningSessionID=5d3f2b54f5671ed2_39053_6Ve8Uwu9__00000001j44&downloadSessionID=0&at=0&birthYear=null&campid=header&cid=index.html&clientType=web&fb_broadcast=0&host=webapp.US&init_id=8169&modTime=1564459960793&pname=15400&profileid=1149739135&territory=US&uid=1564458907341&age=null&gender=null&amsparams=playerid%3AiHeartRadioWebPlayer%3Bskey%3A1564459960&terminalid=159&awparams=g%3Anull%3Bn%3Anull%3Bccaud%3Aundefined%3BcompanionAds%3Atrue&playedFrom=59&dist=iheart&devicename=web-desktop&stationid=3540'
 #  Radio 4 89.1 FM
 radio4='https://stream5.opb.org/kmhd_web.mp3'
+#**********************Radio Station Mapping for JSON packet**********************#
 stations = {'"Radio 1"':radio1,'"Radio 2"':radio2,'"Radio 3"':radio3,'"Radio 4"':radio4}
 
 def onStart():
     counter = 0
+    print("Starting BT Thread")
+    bt_Thread.start()
     while counter < 10:
         try:
             print('\nAttepting to connect')
@@ -148,6 +172,14 @@ def default_state():
     del media
     cmd_color(blue) 
 
+def all_clear(state):
+    global allClear
+    player.pause()
+    allClear = state
+    print("allclear = ", allClear)
+    cmd_color(black)
+
+
 def change_radio(station):
     audio = instance.media_new(station)
     player.set_media(audio)
@@ -186,8 +218,45 @@ def loop():
     fade_client.put_pixels(black)
     time.sleep(1)
 
-#def  switch_white():
+def bt_Connection():
+    global btLock
+    print(" Bluetooth Thread started")
+    time.sleep(5)
 
+    while 1: 
+        try:
+            print("Waiting for BT connection")
+            clientSocket, address = bSocket.accept()
+        except:
+            print("in exception") 
+            clientSocket.close()
+            break
+
+        print("Accepted BT Connection from", address)
+        bt_data = clientSocket.recv(32)
+        print("BT Data Received from->", address)
+        if bt_data:
+            if btLock:
+                #BT lock is true so Event is Currently Black_Swan
+                #We want to reset the PREPHub and go back to Default state
+                all_clear(True)
+                default_state()
+                btLock = False
+            else:
+                if allClear == False:
+                    #PREPHub is not in a Black_Swan event but is in caution mode
+                    #Set all Clear to true and remove from caustion mode to Default state
+                    all_clear(True)
+                    default_state()
+                else:
+                    all_clear(False)
+                    cmd_color(red)
+                    btLock = True
+        
+
+
+
+bt_Thread = threading.Thread(target=bt_Connection)
 onStart()
 
 # Socket event handlers
