@@ -18,20 +18,18 @@ h2 {
     padding: 0;
 }
 
-ol {
+ul {
     margin: 0px 0;
     padding: 0;
+    padding-left: 25px;
+    line-height: 150%;
 }
 
 p {
     margin-top: 10px;
     margin: 0;
     padding: 0;
-    line-height: 150%
-}
-
-ol {
-    padding-left: 10%;
+    line-height: 150%;
 }
 
 .banner {
