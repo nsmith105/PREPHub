@@ -24,8 +24,10 @@ ol {
 }
 
 p {
+    margin-top: 10px;
     margin: 0;
     padding: 0;
+    line-height: 150%
 }
 
 ol {
@@ -93,12 +95,18 @@ ol {
     background-color: #2e2e1f;
 }
 
-#Disaster {
+#Preparation {
     background-color: #2e2e1f;
 }
 
+
+/*#Preparation p {
+    padding: 5px 5px;   
+}*/
+
 #About {
     background-color: #2e2e1f;
+    padding: 0 25px;
 }
 
 .btn-group .button {
