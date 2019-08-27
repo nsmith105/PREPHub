@@ -27,7 +27,7 @@
    - At bottom of file type in `@reboot sudo /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/fadecandy-package-02/bin/fcserver-rpi`
  
 
-## PREPHub Raspberry Pi setupt for screen Pi
+## PREPHub Raspberry Pi setup for screen Pi
 1. Follow the directions to setup the Raspberry Pi [here](https://www.raspberrypi.org/help/quick-start-guide/2/)  
 2. Update and Upgrade the Raspberry Pi  
    - `sudo apt-get install update && sudo apt install upgrade -y`  
@@ -43,7 +43,7 @@
    - `sudo apt install gnome-terminal`
 8. This step show how to autostart `pi.py` file. This file connects to the fadecandy server, gcp server, and changes lights and radio stations  
    - `cp /etc/xdg/lxsession/LXDE-pi/ .config/`  
-   - `cd /home/pi/.config/lxsession/LXDE-pi’  
+   - `cd /home/pi/.config/lxsession/LXDE-pi`  
    - `vim autostart`
    - At the bottom of `autostart` add
      - `@gnome-terminal -- python3 /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/pi.py`  
@@ -58,7 +58,7 @@
    - At the bottom of the file enter `@chromium-browser --start-fullscreen http://localhost:8082 /home/pi/Desktop/splash.html`
    
    
-## PREPHub Raspberry Pi setupt for Wireless Access Point and Captive Portal Pi
+## PREPHub Raspberry Pi setup for Wireless Access Point and Captive Portal Pi
 1. Follow the directions to setup the Raspberry Pi [here](https://www.raspberrypi.org/help/quick-start-guide/2/)  
 2. Update and Upgrade the Raspberry Pi  
    - `sudo apt-get install update && sudo apt install upgrade -y`  
