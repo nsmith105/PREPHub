@@ -6,6 +6,7 @@ in the templates folder, consists the structure of the webpage. The webpage
 contains a banner, which changes depending on the rss feed received by the 
 server, it contains buttons, which controls specific tabcontents. These buttons
 with a specific label do the following:
+
 - Twitter - Opens the twitter feed content
 - Radio - Opens the radio buttons
 - Lights - Open the light buttons
