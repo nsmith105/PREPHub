@@ -48,8 +48,8 @@
 3. Clone the [PREPHub Repository]() onto the Raspberry PI  
    - Our team created a PREPHub folder on the desktop then `cd PREPHub` and clone repository
    Note: Step 3 is not required for the Captive Portal Pi but it is good to have the code on this Pi just in case.
-4. Follow the directions to turn this Pi into a Wireless Access Point [here] (https://pimylifeup.com/raspberry-pi-wireless-access-point/)
-5. Follow the directions for setting up a Raspberry Pi Captive Portal Page [here] (https://pimylifeup.com/raspberry-pi-captive-portal/)
+4. Follow the directions to turn this Pi into a Wireless Access Point [here](https://pimylifeup.com/raspberry-pi-wireless-access-point/)
+5. Follow the directions for setting up a Raspberry Pi Captive Portal Page [here](https://pimylifeup.com/raspberry-pi-captive-portal/)
 6. To change the Splash Page (the page you are redirected to after connecting to the Pi Wifi)
    - Go to `/etc/nodogsplash/htdocs`
    - Edit `splash.html`
