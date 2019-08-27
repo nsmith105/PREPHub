@@ -14,7 +14,11 @@ with a specific label do the following:
 
 In the public folder, there is a css folder and a js folder, which contains
 the local.css file and the local.js file respectively, which determine the
-structure and behavior of the webpage.
+structure and behavior of the webpage. The local.js file controls the behavior
+of the buttons that change the radio and lights, the behavior of the content buttons
+on the top of the page. Also, web sockets were implemented so the buttons can communicate
+with the server, and the server can send messages to the website as well, notifying
+the user of alerts.
 
 All the modules needed ar ein the node_modules folder, the demo RSS feeds are
 in the "RSS xml demo files" folder.
