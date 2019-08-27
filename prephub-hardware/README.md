@@ -5,7 +5,7 @@
 ## PREPHub Raspberry Pi Setup for Pi that only connect to led strips
 1. Follow the directions to setup the Raspberry Pi [here](https://www.raspberrypi.org/help/quick-start-guide/2/)  
 2. Update and Upgrade the Raspberry Pi  
-   - 'sudo apt-get install update && sudo apt install upgrade -y'  
+   - `sudo apt-get install update && sudo apt install upgrade -y`  
 3. Clone the [PREPHub Repository]() onto the Raspberry PI  
    - Our team created a PREPHub folder on the desktop then `cd PREPHub` and clone repository  
 4. Ensure Python3-pip is installed  
@@ -23,12 +23,14 @@
    - At the bottom of `autostart` add
      - `@gnome-terminal -- python3 /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/pi.py`  
 9. Connect to fadecandy server on startup. Must edit `crontab`
-   -  
+   - Enter `sudo crontab -e`  
+   - At bottom of file type in `@reboot sudo /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/fadecandy-package-02/bin/fcserver-rpi`
+ 
 
 ## PREPHub Raspberry Pi setupt for screen Pi
 1. Follow the directions to setup the Raspberry Pi [here](https://www.raspberrypi.org/help/quick-start-guide/2/)  
 2. Update and Upgrade the Raspberry Pi  
-   - 'sudo apt-get install update && sudo apt install upgrade -y'  
+   - `sudo apt-get install update && sudo apt install upgrade -y`  
 3. Clone the [PREPHub Repository]() onto the Raspberry PI  
    - Our team created a PREPHub folder on the desktop then `cd PREPHub` and clone repository  
 4. Ensure Python3-pip is installed  
@@ -39,12 +41,27 @@
    - `sudo pip3 install python-vlc`  
 7. Install gnome-terminal  
    - `sudo apt install gnome-terminal`
+8. This step show how to autostart `pi.py` file. This file connects to the fadecandy server, gcp server, and changes lights and radio stations  
+   - `cp /etc/xdg/lxsession/LXDE-pi/ .config/`  
+   - `cd /home/pi/.config/lxsession/LXDE-pi’  
+   - `vim autostart`
+   - At the bottom of `autostart` add
+     - `@gnome-terminal -- python3 /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/pi.py`  
+9. Connect to fadecandy server on startup. Must edit `crontab`
+   - Enter `sudo crontab -e`  
+   - At bottom of file type in `@reboot sudo /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/fadecandy-package-02/bin/fcserver-rpi`
+10. Run Image Carousel on startup edit `crontab`
+   - Enter `sudo crontab -e`
+   - At bottom of file type in `@reboot node /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/prephub-Screen/app.js` to host a local node.js server so the script `load_image.js` send ajax request to itself to load images automatically.
+   - Go to `~/.config/lxsession/LXDE-pi`
+   - Enter `vim autostart`
+   - At the bottom of the file enter `@chromium-browser --start-fullscreen http://localhost:8082 /home/pi/Desktop/splash.html`
    
    
 ## PREPHub Raspberry Pi setupt for Wireless Access Point and Captive Portal Pi
 1. Follow the directions to setup the Raspberry Pi [here](https://www.raspberrypi.org/help/quick-start-guide/2/)  
 2. Update and Upgrade the Raspberry Pi  
-   - 'sudo apt-get install update && sudo apt install upgrade -y'  
+   - `sudo apt-get install update && sudo apt install upgrade -y`  
 3. Clone the [PREPHub Repository]() onto the Raspberry PI  
    - Our team created a PREPHub folder on the desktop then `cd PREPHub` and clone repository
    Note: Step 3 is not required for the Captive Portal Pi but it is good to have the code on this Pi just in case.
