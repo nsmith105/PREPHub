@@ -21,8 +21,8 @@ on the top of the page. Also, web sockets were implemented so the buttons can co
 with the server, and the server can send messages to the website as well, notifying
 the user of alerts.
 
-All the modules needed ar ein the node_modules folder, the demo RSS feeds are
-in the "RSS xml demo files" folder.
+All the modules needed are in the node_modules folder, the demo RSS feeds are
+labeled in this directory.
 
 The file, app.js, is the program for the web server, which is hosted on
 google cloud.
