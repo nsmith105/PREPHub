@@ -51,8 +51,8 @@
    - Enter `sudo crontab -e`  
    - At bottom of file type in `@reboot sudo /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/fadecandy-package-02/bin/fcserver-rpi`
 10. Run Image Carousel on startup edit `crontab`
-   - Enter `sudo crontab -e`
-   - At bottom of file type in `@reboot node /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/prephub-Screen/app.js` to host a local node.js server so the script `load_image.js` send ajax request to itself to load images automatically.
+    - Enter `sudo crontab -e`
+    - At bottom of file type in `@reboot node /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/prephub-Screen/app.js` to host a local node.js server so the script `load_image.js` send ajax request to itself to load images automatically.
    - Go to `~/.config/lxsession/LXDE-pi`
    - Enter `vim autostart`
    - At the bottom of the file enter `@chromium-browser --start-fullscreen http://localhost:8082 /home/pi/Desktop/splash.html`
