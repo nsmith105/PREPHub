@@ -62,8 +62,8 @@ prephub = 'http://35.197.44.95:9000/'
 radio1 = 'https://prod-18-236-222-179.wostreaming.net/alphacorporate-kbfffmaac-ibc4?session-id=4a52f158c5d9d710f541b67ded807a1a&source=website'
 # radio 2 is 106.7 The Eagle
 radio2 = 'https://stream5.opb.org/opbmusic_player.mp3'
-# Radio 3 105.8 The Brew
-radio3=''
+# Radio 3 Random Trance Station
+radio3='http://intenseradio.live-streams.nl:8000/live'
 #  Radio 4 89.1 FM
 radio4='https://stream5.opb.org/kmhd_web.mp3'
 #**********************Radio Station Mapping for JSON packet**********************#
