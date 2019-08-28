@@ -1,3 +1,0 @@
-LXDE autostart is not working
-https://raspberrypi.stackexchange.com/questions/89519/lxde-autostart-is-not-working
-Note: local LXDE autostart file take precedence over global
