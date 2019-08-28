@@ -1,8 +1,8 @@
 ## Deployment instructions:
 
 To run server locally:
-- node app.js
-- website will be accessible through http://localhost:8080
+1) Enter: "node app.js" in terminal
+2) Website will be accessible through http://localhost:8080
 
 To run on GCP VM:
 1) Create VM instance with Ubuntu
