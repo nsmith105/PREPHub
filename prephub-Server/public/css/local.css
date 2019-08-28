@@ -1,159 +1,185 @@
-* {box-sizing: border-box}
+* {
+    box-sizing: border-box
+}
+
 
 /* Set height of body and the document to 100% */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
-  background-color: #2e2e1f;
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+    background-color: #2e2e1f;
 }
 
 h2 {
-  margin: 0;
-  padding: 0;
-}
-
-ol {
-  margin: 0px 0;
-  padding: 0;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-  line-height: 150%;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
-  margin: 0px 0;
-  padding: 0;
-  padding-left: 25px;
-  line-height: 150%;
+    margin: 0px 0;
+    padding: 0;
+    padding-left: 25px;
+    line-height: 150%;
 }
 
-
-ol {
-  padding-left: 10%;
+p {
+    margin-top: 10px;
+    margin: 0;
+    padding: 0;
+    line-height: 150%;
 }
 
 .banner {
-  background-color: yellow;
-  margin: 0;
-  padding:0;
+    background-color: yellow;
+    margin: 0;
+    padding: 0;
 }
 
+
 /* Style tab links */
+
 .tablink {
-  background-color: #558000;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 20%;
+    background-color: #558000;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 20%;
 }
 
 .tablink:hover {
-  background-color: #777;
+    background-color: #2e2e1f;
+    color: white;
 }
+
+.tabactive {
+    background-color: #2e2e1f;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 20%;
+}
+
 
 /* Style the tab content (and add height:100% for full page content) */
+
 .tabcontent {
-  color: black;
-  background-color: #2e2e1f;
-  display: none;
-  padding: 0px 20px;
-  height: auto;
+    color: black;
+    background-color: #2e2e1f;
+    display: none;
+    padding: 0px 100px;
+    height: auto;
 }
 
-#Twitter {background-color: #2e2e1f;}
-#Radio {background-color: #2e2e1f;}
-#Lights {background-color: #2e2e1f;}
-#Disaster {background-color: #2e2e1f;}
-#About {background-color: #2e2e1f}
+#Twitter {
+    background-color: #2e2e1f;
+}
+
+#Radio {
+    background-color: #2e2e1f;
+}
+
+#Lights {
+    background-color: #2e2e1f;
+}
+
+#Preparation {
+    background-color: #2e2e1f;
+}
+
+
+/*#Preparation p {
+    padding: 5px 5px;   
+}*/
+
+#About {
+    background-color: #2e2e1f;
+    padding: 0 25px;
+}
 
 .btn-group .button {
-  border-radius: 5px;
-  background-color: #9ACD32;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  float: center;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 600px) {
-  .tablink {
-    font-size: 10px;
-  }
+    border-radius: 5px;
+    background-color: #9ACD32;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height: 50px;
+    width: 50%;
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    float: center;
 }
 
 .btn-group .button:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
-  float: center;
+    border-bottom: none;
+    /* Prevent double borders */
+    float: center;
 }
 
 .container {
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  padding: 0 25px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    padding: 0 25px;
 }
- 
+
 .collapsible {
-  border-radius: 5px;
-  background-color: #9ACD32;
-  color: black;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+    border-radius: 5px;
+    background-color: #9ACD32;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
 }
 
 .heading {
-  text-align: center;
+    text-align: center;
 }
 
 .active {
-  background-color: #013220;
-  color: white
+    background-color: #013220;
+    color: white
 }
 
 .collapsible:hover {
-  background-color: black;
-  color: white
+    background-color: black;
+    color: white
 }
 
 .collapsible:after {
-  content: '\002B';
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
 }
 
 .active:after {
-  content: "\2212";
+    content: "\2212";
 }
 
 .content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
 }
