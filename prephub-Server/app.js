@@ -19,6 +19,7 @@ var rssRelevantWindow = 1000000000*1000;//Test RSS window
 var index = 0; //For demo purposes, index will cycle through example RSS URLs
 var demo = false;//Enable/disable demo mode
 var os = require('os');
+var router = express.Router();
 
 console.log(os.hostname());
 
@@ -95,14 +96,14 @@ function sendData(empty_flag) {
         lastRSSMsg = rssData[1].description;
         
 	if(rssData[1].description.includes("inclement weather")){
-          ioPi.emit('rss feed', "weather");
+          ioPi.emit('rss feed', "inclement weather");
         }
         else if(rssData[1].description.includes("Police activity")){
           ioPi.emit('rss feed', "police");
         }
-        else if(rssData[1].description.includes("all clear")){
-          ioPi.emit('rss feed', "clear");
-        
+        else if(rssData[1].description.includes("remains open")){
+          ioPi.emit('rss feed', "all clear");
+        } 
         //^Send RSS data to Pi^
         ioWeb.emit('rss feed', rssData[1]);
         console.log('sending rss feed');
@@ -135,7 +136,7 @@ app.get('/rss_police', (req, res) => {
   res.sendFile(__dirname + '/rss_police.xml')
 });
 app.get('/rss_police_clear', (req, res) => {
-  res.sendFile(__dirname + '/rss_police_clear.xml')
+  res.sendFile(__dirname + '/rss_police_clear.xml');
 });
 app.get('/setrsspolice', (req, res) => {
   rssURL = 'http://35.197.44.95:9000/rss_police.xml';
@@ -149,6 +150,11 @@ app.get('/setrssdefault', (req, res) => {
   rssURL = 'http://rss.blackboardconnect.com/239300/PSUAlert/feed.xml';
   res.send('rss feed changed to: ' + rssURL);
 });
+app.use(express.static('templates'));
+app.use('/images', express.static('templates'));
+app.use('/', router);
+express.static('/templates/images/', router);
+
 
 
 /********* Socket.io Stuff *********/
@@ -196,7 +202,3 @@ ioPi.on('connection', function (socket) {
     ioWeb.emit('send command confirm', msg);
   });
 });
-/*let port = process.env.PORT || 8080;
-http.listen(port, function () {
-  console.log('listening on: ' + port);
-});*/
