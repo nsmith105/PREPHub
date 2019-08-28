@@ -1,3 +1,7 @@
+## RSS Parser Testing
+
+The app.js file includes an RSS parser as well as routing forwards for testing different RSS scenarios. e.g. http://prephuburlhere.com/setrsspolice will switch the RSS feed to a local file containing an RSS post about police activity. Other forwards include "../setrssclear" to clear the police activity and "../setrssdefault" to set the RSS feed back the the default, live RSS feed URL.
+
 ## Server Deployment Instructions:
 
 To run server locally:
