@@ -1,3 +1,7 @@
+/**
+ * This server handles hosting a local server
+ * for the carousel page
+ */
 const express = require("express");
 const app = express();
 var serveIndex = require('serve-index')

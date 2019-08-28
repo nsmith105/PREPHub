@@ -1,0 +1,16 @@
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.banner {
+    background-color: yellow;
+    margin: 0;
+    padding:0;
+  }

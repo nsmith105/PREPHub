@@ -1,3 +1,10 @@
+/**
+ * This js script automatically loads all images un public/images/
+ * The script sends an AJAX request to window.location.host
+ * it will fetch all images under public/images/ and automatically populate
+ * the carousel with the selected images.
+ * 
+ */
 var dir = "/images";
 var fileextension = ".jpg";
 $.ajax({
