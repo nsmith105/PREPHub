@@ -48,6 +48,8 @@ green = [ (0,255,0) ] * numLEDs
 yellow = [ (255,255,0) ] * numLEDs
 orange = [ (255,127,0) ] * numLEDs
 red = [ (255,0,0) ] * numLEDs
+pink = [ (255, 143, 195) ] * numLEDs
+brown = [ (143, 92, 20) ] * numLEDS
 black = [ (0,0,0) ] * numLEDs
 colors = {'"White"':white,'"Green"':green,'"Purple"':purple,'"Blue"':blue}
 
@@ -59,9 +61,9 @@ prephub = 'http://35.197.44.95:9000/'
 # radio 1 is Jammin 95.5 FM
 radio1 = 'https://prod-18-236-222-179.wostreaming.net/alphacorporate-kbfffmaac-ibc4?session-id=4a52f158c5d9d710f541b67ded807a1a&source=website'
 # radio 2 is 106.7 The Eagle
-radio2 = 'https://c13.prod.playlists.ihrhls.com/4315/playlist.m3u8?listeningSessionID=5d3f2b54f5671ed2_38217_uOMmp47J__00000001hQa&downloadSessionID=0&at=0&birthYear=null&campid=header&cid=index.html&clientType=web&fb_broadcast=0&host=webapp.US&init_id=8169&modTime=1564459075772&pname=15400&profileid=1149739135&territory=US&uid=1564458907341&age=null&gender=null&amsparams=playerid%3AiHeartRadioWebPlayer%3Bskey%3A1564459075&terminalid=159&awparams=g%3Anull%3Bn%3Anull%3Bccaud%3Aundefined%3BcompanionAds%3Atrue&playedFrom=60&dist=iheart&devicename=web-desktop&stationid=4315'
+radio2 = 'https://stream5.opb.org/opbmusic_player.mp3'
 # Radio 3 105.8 The Brew
-radio3='https://c13.prod.playlists.ihrhls.com/3540/playlist.m3u8?listeningSessionID=5d3f2b54f5671ed2_39053_6Ve8Uwu9__00000001j44&downloadSessionID=0&at=0&birthYear=null&campid=header&cid=index.html&clientType=web&fb_broadcast=0&host=webapp.US&init_id=8169&modTime=1564459960793&pname=15400&profileid=1149739135&territory=US&uid=1564458907341&age=null&gender=null&amsparams=playerid%3AiHeartRadioWebPlayer%3Bskey%3A1564459960&terminalid=159&awparams=g%3Anull%3Bn%3Anull%3Bccaud%3Aundefined%3BcompanionAds%3Atrue&playedFrom=59&dist=iheart&devicename=web-desktop&stationid=3540'
+radio3=''
 #  Radio 4 89.1 FM
 radio4='https://stream5.opb.org/kmhd_web.mp3'
 #**********************Radio Station Mapping for JSON packet**********************#

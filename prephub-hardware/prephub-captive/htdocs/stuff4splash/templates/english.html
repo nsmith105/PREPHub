@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+  <title>Post Emergency Disaster Protocol </title>
+</head>
+
+<body>
+  <script src="static/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">PREPHUB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="dropdown-item" href="/english">English</a>
+              </li>
+              <li class="nav-item">
+                  <a class="dropdown-item" href="/spanish">Spanish</a>
+              </li>
+              <li class="nav-item">
+                  <a class="dropdown-item" href="/vietnamese">Vietnamese</a>
+              </li>
+              <li class="nav-item">
+                  <a class="dropdown-item" href="/korean">Korean</a>
+              </li>
+              <li class="nav-item">
+                  <a class="dropdown-item" href="/russian">Russian</a>
+              </li>
+              <li class="nav-item">
+                  <a class="dropdown-item" href="/chinese_simplified">Chinese (Simplified)</a>
+              </li>
+              <li class="nav-item">
+                  <a class="dropdown-item" href="/chinese_traditional">Chinese (Traditional)</a>
+              </li>
+
+          </ul>
+      </div>
+  </nav>
+  <div class="content">
+    <div class="row">
+      <ul id="post-disaster" class="column">
+        <b>After the Earthquake:</b>
+        <li>Expect aftershocks. Each time you feel an aftershock, drop, cover and hold on.</li>
+        <li>Check yourself for injuries and get first aid if necessary before helping others.</li>
+        <li>There may be a lot of broken glass and debris. Protect your head, feet and hands.</li>
+        <li>Check the natural gas or propane at your house. Shut it off if smells like gas (rotten eggs).</li>
+        <li>Shut off water at the curbside to trap the clean water that’s in your pipes and keep pollutants out.</li>
+        <li>Get everyone out of your home.</li>
+        <li>Watch for fallen power lines or broken gas lines; stay out of damaged areas.</li>
+        <li>Text your contacts to let them know you are safe.</li>
+        <li>Check on your neighbors.</li>
+        <li>If you are trapped in the house, use your whistle or bang something to call for help.
+          <br>
+          <br>
+          <b>Other potential hazards:</b>
+          <br>
+        </li>
+        <li>If you smell a gas leak, shut off the main gas valve if you can. Go outside and wait for the gas smell to
+          goaway. Call the utility company to turn gas back on.</li>
+        <li>Shut off power at the breaker box if electrical wiring is damaged. Leave the power off until damage is
+          repaired.
+        </li>
+        <li>Stay away from chimneys and walls made of brick. They could topple during an aftershock.</li>
+      </ul>
+      <div id="images" class="column">
+        <div> <img src="{{ url_for('static', filename='images/1.png') }}"></div>
+        <div> <img src="{{ url_for('static', filename='images/2.png') }}"></div>
+        <div> <img src="{{ url_for('static', filename='images/3.png') }}"></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
