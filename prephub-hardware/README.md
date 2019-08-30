@@ -57,7 +57,27 @@
     - At bottom of file type in `@reboot node /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/prephub-Screen/app.js` to host a local node.js server so the script `load_image.js` send ajax request to itself to load images automatically.
    - Go to `~/.config/lxsession/LXDE-pi`
    - Enter `vim autostart`
-   - At the bottom of the file enter `@chromium-browser --start-fullscreen http://localhost:8082 /home/pi/Desktop/splash.html`   
+   - At the bottom of the file enter `@chromium-browser --start-fullscreen http://localhost:8082 /home/pi/Desktop/splash.html`  
+   
+## Bluetooth Setup
+###Do This before Captive Pi setup
+After the above installations are complete setup the Bluetooth Protocol by following these directions to install the neccesary hardware. Open a terminal and follow the directions below
+1. Download the latest version of the Bluetooth Library
+   - `sudo apt-get install bluetooth libbluetooth-dev`
+2. Download the latest version of pybluez
+   - `sudo pip install pybluez`
+3. Restart your system
+   - `sudo reboot`
+4. Run the bluetooth config manager
+   - `sudo hciconfig`
+5. Make the PI available to sync by typing
+   - `scan on`
+   - `discoverable on`
+   - `pairable on`
+6. Find the device you want pair with and type
+   - `pair *mac addres here*`
+7. (Only for Captive Portal Pi)Copy that Mac Address and put it into the Captive Portal Pi `MobileConnect.py` to recieve a connection from you selected Device.
+8.(Only for Main and Screen Pi) Copy the Mac Address from the Captive portal Pi and put it into your pi.py folder to recieve a connection from
    
 ## PREPHub Raspberry Pi setup for Wireless Access Point and Captive Portal Pi
 1. Follow the directions to setup the Raspberry Pi [here](https://www.raspberrypi.org/help/quick-start-guide/2/)  
