@@ -48,7 +48,9 @@
    - `cd /home/pi/.config/lxsession/LXDE-pi`  
    - `vim autostart`
    - At the bottom of `autostart` add
-     - `@gnome-terminal -- python3 /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/pi.py`  
+     - `@gnome-terminal -- python3 /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/pi.py`
+   - In the same folder to Make the Bluetooth Listner start on startup
+     - (Captive Pi Only) `@gnome-terminal -- python3 /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/MobileConnect.py`
 9. Connect to fadecandy server on startup. Must edit `crontab`
    - Enter `sudo crontab -e`  
    - At bottom of file type in `@reboot sudo /home/pi/Desktop/PREPHub/PREPHub-TeamD/prephub-hardware/fadecandy-package-02/bin/fcserver-rpi`
