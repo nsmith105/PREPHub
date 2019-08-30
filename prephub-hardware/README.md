@@ -7,9 +7,9 @@
 2. Update and Upgrade the Raspberry Pi  
    - `sudo apt-get install update && sudo apt install upgrade -y`  
 3. Clone the [PREPHub Repository]() onto the Raspberry PI  
-   -From the home directory go to `Desktop` and make a new folder PREPHub(`mkdir PREPHub`)
-   -Go into the new folder `cd PREPHub`(You current path should be `~/Desktop/PREPHub/`
-   -Clone this repository into this folder(`git clone "Link to this repo"`)
+   - From the home directory go to `Desktop` and make a new folder PREPHub(`mkdir PREPHub`)
+   - Go into the new folder `cd PREPHub`(You current path should be `~/Desktop/PREPHub/`
+   - Clone this repository into this folder(`git clone "Link to this repo"`)
 4. Ensure Python3-pip is installed  
    - `sudo apt-get install python3-pip`  
 5. Install Python-socketio  
