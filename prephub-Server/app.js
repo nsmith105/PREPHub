@@ -14,38 +14,23 @@ var radioLockTime = 10000; //How long should the radio be locked after change
 var rssInterval = 5000; //How often should RSS feed be checked
 var rssData = [{}]; //Parsed RSS data will be stored here in fields: 'description', 'date'
 var lastRSSMsg = "";//Last RSS message sent to Pi/Webpage
-//var rssRelevantWindow = 43200000; //Ignore RSS feeds older than this (12 hours)
-var rssRelevantWindow = 1000000000*1000;//Test RSS window
+var rssRelevantWindow = 43200000; //Ignore RSS feeds older than this (12 hours)
 var index = 0; //For demo purposes, index will cycle through example RSS URLs
-var demo = false;//Enable/disable demo mode
+var demo = true;//Enable/disable demo mode
 var os = require('os');
 var router = express.Router();
 
-console.log(os.hostname());
+if(demo === true){
+  rssRelevantWindow = 1000000000*1000;//Sets very large time window for RSS testing purposes
+} 
+else {
+  rssRelevantWindow = 43200000; //Sets 12 hour time window for RSS parser
+}
 
 //Function will automatically run every $rssInterval seconds to fetch and parse RSS feed data
 setInterval(() => {
   console.log("getting RSS data! -- " + index);
-  //Demo for testing RSS cases
-  if (demo === true) {
-    rssRelevantWindow = 1000000000*1000;//Change relevant window to 1,000,000,000 seconds to include any age RSS post
-    switch (index) {
-      case 0:
-        rssURL = 'http://35.197.44.95:9000/rss_empty.xml';
-        break;
-      case 1:
-        rssURL = 'http://35.197.44.95:9000/rss_police.xml';
-        break;
-      case 2:
-        rssURL = 'http://35.197.44.95:9000/rss_police_clear.xml';
-        break;
-    }
-    index++;
-    if (index === 3) {
-      index = 0;
-    }
-  }
-  //Demo for testing RSS cases
+
   //Send HTTP request to get XML data from rssURL
   request(rssURL, (error, response, body) => {
     var parser = new xml2js.Parser();
@@ -139,11 +124,11 @@ app.get('/rss_police_clear', (req, res) => {
   res.sendFile(__dirname + '/rss_police_clear.xml');
 });
 app.get('/setrsspolice', (req, res) => {
-  rssURL = 'http://35.197.44.95:9000/rss_police.xml';
+  rssURL = 'http://35.197.44.95:9000/rss_feed_samples/rss_police.xml';
   res.send('rss feed changed to: ' + rssURL);
 });
 app.get('/setrssclear', (req, res) => {
-  rssURL = 'http://35.197.44.95:9000/rss_police_clear.xml';
+  rssURL = 'http://35.197.44.95:9000/rss_feed_samples/rss_police_clear.xml';
   res.send('rss feed changed to: ' + rssURL);
 });
 app.get('/setrssdefault', (req, res) => {
