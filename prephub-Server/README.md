@@ -17,7 +17,9 @@ To run on GCP VM:
 4) SSH into VM instance through GCP interface & clone repo 
 5) To run node server, navigate to the server directory and enter "node app.js". Webpage will now be visible on the GCP instance external IP address. However, this node server will not persist when SSH window is closed.
 6) To enable node server to persist after window is closed, you can run it in the background using "nohub" with the following command. 
-    - sudo nohup node PREPHUB-TeamD/prephub-Server/app.js &
+    Note: nohup command should be executed IN the server directory.
+    - sudo nohup node app.js &
+    Note: ps command should be run in the same directory that the initial nohup command was executed in.
     - To close nohup background process: 
         1) get PID: ps -ef |grep nohup
         2) Kill nohup process: sudo kill <PID>
