@@ -6,7 +6,7 @@ The app.js file includes an RSS parser as well as routing forwards for testing d
 
 To run server locally:
 1) Enter: "node app.js" in terminal
-2) Website will be accessible through http://localhost:8080
+2) Website will be accessible through http://localhost:9000
 
 To run on GCP VM:
 1) Create VM instance with Ubuntu
