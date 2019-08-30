@@ -22,7 +22,7 @@ To run on GCP VM:
     Note: ps command should be run in the same directory that the initial nohup command was executed in.
     - To close nohup background process: 
         1) get PID: ps -ef |grep nohup
-        2) Kill nohup process: sudo kill <PID>
+        2) Kill nohup process: sudo kill {process_id}
 
 # Website
 
